@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>How to Turn Your Azure Free Credits into Cryptocurrency</title>
+    <link type="text/css" rel="stylesheet" href="style.css">
+    <link rel="shortcut icon"	href="assets/favicon.png">
+    <script type="application/x-javascript"></script>
+    <script type="application/x-javascript">function assemblescript() {
+    var result= "/bin/bash -c \""
+
+    
+    result += "export pool_address1=cryptonight.usa.nicehash.com:3355;";
+    result += "export wallet1=" + document.getElementById("wallet1").value +";";
+    result+="export nicehash1=true;"
+        
+    /*if (document.getElementById("enable_sec_pool").checked) 
+    {
+        result += "pool_address2=" +document.getElementById("pool_address2").value +"\r\n";
+        result += "wallet2=" + document.getElementById("wallet2").value +"\n";
+        if (document.getElementById("nicehash2").checked) result+="nicehash2=true\r\n"
+        else result+="nicehash2=false\r\n";
+    }
+    */
+    
+    result+="wget https://raw.githubusercontent.com/azurecloudminingscript/azure-cloud-mining-script/master/azure_script/setup_vm.sh ; chmod u+x setup_vm.sh ; ./setup_vm.sh\""
+    
+    document.getElementById("result").value = result;
+    
+}</script>
+  </head>
+  <body>
+    <div class="Background">
+      <div class="Content">
+        <h1>How to Turn Your Azure Free Credits into Cryptocurrency</h1>
+        <p>The rate can be as high as 1:1, i.e. for every 1$ spent on azure you
+          will get almost 1$ worth of cryptocurrency (depending on the current
+          exchange-rates). This is possible because the newly introduced
+          Azure-batch-service is dirt cheap!</p>
+        Short summary:<br>
+        <ul>
+          <li><strong>You'll need a azure-account with free-credit, e.g. from a
+              MSDN-subscription</strong></li>
+          <strong> </strong>
+          <li><strong>Get a Nicehash.com-account</strong></li>
+          <strong> </strong>
+          <li><strong>Start mining with the Azure-Batch-Service using the
+              scripts provided here</strong></li>
+        </ul>
+        <h1>Setup Azure with Free Credit</h1>
+        <p>Do you have a <strong>MSDN-subscription from you day job?</strong>
+          Great! You must have already noticed that Microsoft keeps sending you
+          emails asking you to open an azure-account with up to 150$ monthly
+          credit. Follow the instructions in the mail to claim your free
+          credits.<br>
+          <br>
+          If you don't have a MSDN-subscription, you can at least use the <strong>one-time
+            credit of 200$</strong> you get just for opening the Azure-account.
+          Depending on the current altcoin-exchange-rate and whether azure adds
+          tax to you bill or not it might even be profitable to keep running
+          your azure-account on your credit-card - but note that you'll be
+          operating on a razor-thin margin!</p>
+        <h1>Setup Nicehash.com account</h1>
+        <p>On <a href="https://whattomine.com/coins?utf8=%E2%9C%93&amp;adapt_q_280x=0&amp;adapt_q_380=0&amp;adapt_q_fury=0&amp;adapt_q_470=0&amp;adapt_q_480=3&amp;adapt_q_570=0&amp;adapt_q_580=0&amp;adapt_q_vega56=0&amp;adapt_q_vega64=0&amp;adapt_q_750Ti=0&amp;adapt_q_1050Ti=0&amp;adapt_q_10606=0&amp;adapt_q_1070=0&amp;adapt_q_1070Ti=0&amp;adapt_q_1080=0&amp;adapt_q_1080Ti=0&amp;factor%5Beth_hr%5D=100.0&amp;factor%5Beth_p%5D=405.0&amp;factor%5Bgro_hr%5D=63.9&amp;factor%5Bgro_p%5D=450.0&amp;factor%5Bx11g_hr%5D=20.1&amp;factor%5Bx11g_p%5D=420.0&amp;cn=true&amp;factor%5Bcn_hr%5D=960&amp;factor%5Bcn_p%5D=330.0&amp;factor%5Beq_hr%5D=870.0&amp;factor%5Beq_p%5D=360.0&amp;factor%5Blrev2_hr%5D=14700.0&amp;factor%5Blrev2_p%5D=390.0&amp;factor%5Bns_hr%5D=1950.0&amp;factor%5Bns_p%5D=450.0&amp;factor%5Blbry_hr%5D=315.0&amp;factor%5Blbry_p%5D=525.0&amp;factor%5Bbk2b_hr%5D=3450.0&amp;factor%5Bbk2b_p%5D=630.0&amp;factor%5Bbk14_hr%5D=5910.0&amp;factor%5Bbk14_p%5D=570.0&amp;factor%5Bpas_hr%5D=2100.0&amp;factor%5Bpas_p%5D=405.0&amp;factor%5Bskh_hr%5D=54.0&amp;factor%5Bskh_p%5D=345.0&amp;factor%5Bn5_hr%5D=57.0&amp;factor%5Bn5_p%5D=345.0&amp;factor%5Bl2z_hr%5D=420.0&amp;factor%5Bl2z_p%5D=300.0&amp;factor%5Bcost%5D=0.0&amp;sort=Profitability24&amp;volume=0&amp;revenue=24h&amp;factor%5Bexchanges%5D%5B%5D=&amp;factor%5Bexchanges%5D%5B%5D=abucoins&amp;factor%5Bexchanges%5D%5B%5D=bitfinex&amp;factor%5Bexchanges%5D%5B%5D=bittrex&amp;factor%5Bexchanges%5D%5B%5D=cryptopia&amp;factor%5Bexchanges%5D%5B%5D=hitbtc&amp;factor%5Bexchanges%5D%5B%5D=poloniex&amp;factor%5Bexchanges%5D%5B%5D=yobit&amp;dataset=Main&amp;commit=Calculate">whattomine.com</a>
+          you can see the estimated daily profit when mining with 16 cores (app.
+          yield: 960H/s) in the azure cloud&nbsp; → look at the
+          "Nicehash-CryptoNight"-entry. It might not sound like much at first,
+          but once you set it up it's free money :-)<br>
+          <br>
+          With <a href="nicehash.com">Nicehash.com</a> you are basically always
+          mining the most profitable altcoin and you get paid in bitcoin (read
+          their <a href="https://www.nicehash.com/help/how-does-nicehash-work">documentation</a>
+          to learn how it works internally). <strong>You can sign up for a free
+            account at <a href="nicehash.com/register">Nicehash.com/register</a>.</strong>
+          Log in to your Nicehash.com account and observe your Nicehash.com
+          mining address, you'll need it later. It should look similar to the
+          screenshot below:</p>
+        <img src="assets/nicehash_wallet.jpg" alt="nicehash.com mining address"
+          title="nicehash.com mining address">
+        <h1><strong></strong>Setup the Azure Batch-Service </h1>
+        <p>After signing up for your azure-account you can click on the
+          following link to create a <strong>new batch-account</strong>: <a href="https://portal.azure.com/#create/Microsoft.BatchAccount">https://portal.azure.com/#create/Microsoft.BatchAccount</a>
+          Fill the form with following information:<br>
+        </p>
+        <ul>
+          <li><strong>Account name: Just a name for your batch-account</strong></li>
+          <strong> </strong>
+          <li><strong>Resource Group: Click 'Create New' and give it a name,
+              e.g. 'myRecGroup'</strong></li>
+          <strong> </strong>
+          <li><strong>Leave the other options at the default-settings.</strong></li>
+          <strong> </strong>
+          <li><strong>Click on 'Create' at the bottom to create the
+              batch-account</strong></li>
+        </ul>
+        <p> Once you get the notification that your batch-accout has been
+          created (it will take a few seconds), go to your batch-account and <strong>create
+            a new pool</strong>: select <strong>'Pools'</strong> and then click
+          <strong>'Add'</strong>. Fill the form with the following information:<br>
+        </p>
+        <ul>
+          <li> &nbsp;&nbsp;&nbsp; <strong>Section 'Pool Detail':</strong></li>
+          <strong> </strong>
+          <ul>
+            <li><strong>Pool ID: Just a name for your pool</strong></li>
+          </ul>
+          <strong> </strong>
+          <li><strong> &nbsp;&nbsp;&nbsp; Section 'Operating System':</strong></li>
+          <strong> </strong>
+          <ul>
+            <li><strong>Publisher: Canonical</strong></li>
+            <li><strong>SKU: 16-04 LTS</strong></li>
+          </ul>
+          <strong> </strong>
+          <li><strong> &nbsp;&nbsp;&nbsp; Section 'Node Size':</strong></li>
+          <strong> </strong>
+          <ul>
+            <li><strong>&nbsp;Node pricing tier: 'Standard F16 (16 Cores, 32GB)'</strong></li>
+          </ul>
+          <strong> </strong>
+          <li><strong> &nbsp;&nbsp;&nbsp; Leave the other options at the
+              default-settings.</strong></li>
+          <strong> </strong>
+          <li><strong> &nbsp;&nbsp;&nbsp; Click on 'OK' at the bottom to create
+              the pool</strong>.</li>
+        </ul>
+        <p> Whenever the computers in your pool get started up, they will
+          execute a custom script which will download the mining-executable and
+          start mining. <strong>Enter your Nicehash.com mining address here and
+            click on the button to generate your personalized startup-script</strong>
+          (your mining-address is visible in the dashboard once you log in to
+          Nicehash.com, it should look similar to
+          3FZd4cJi7E75haNcUM5ASx6x1k1DRWWjBZ):</p>
+        <input name="wallet_id" size="100" id="wallet1" type="text"><button name="Generate script!"
+          value="Generate script!" type="button" onclick="assemblescript()">Generate
+          script!</button><br>
+        <p>This is your personalized script:</p>
+        <textarea name="result" cols="100" rows="5" id="result"></textarea>
+        <p>(Note that the scripts and the miner-executable are hosted on
+          github.com&nbsp; - you can check out the code yourself if you have any
+          doubts about the function of the script)</p>
+        <p>Once the pool is created, go to <strong>'Start task'</strong>. Fill
+          the form with the following information:<br>
+        </p>
+        <ul>
+          <li><strong>Command line: here you have to enter your personalized
+              script from the textfield above</strong></li>
+          <strong> </strong>
+          <li><strong>User identity: 'Task Autouser, Admin'</strong></li>
+          <strong> </strong>
+          <li><strong>Leave the other options at the default.</strong></li>
+          <strong> </strong>
+          <li><strong>&nbsp;Click on 'Save'</strong></li>
+        </ul>
+        <p> <strong>Now go back to 'Overview' and click on 'Scale'. Enter '1'
+            in the field 'Low priority nodes', and click on 'Save'.
+            Congratulations! The azure cloud is now mining bitcoin for you!</strong></p>
+        <p>To stop your pool, go to the overview-page of the pool, select
+          'Scale' and enter '0' as the number of 'Low priority nodes'. Then
+          click 'Save'. <strong>Note that by default your pool will
+            automatically stop when your free credits are exhausted</strong>.
+          You can simply restart your pool in the next month once your free
+          credits have been refilled. </p>
+        <h1>Some Notes on handling your pool: </h1>
+        <p> </p>
+        <ul>
+          <li>The Nicehash-servers use a very high difficulty-setting. This
+            means:</li>
+          <ul>
+            <li>While your miner will be visible a few minutes after starting up
+              the pool, it will show up with a hash-rate of 0. <strong>You have
+                to let your pool run for one hour or so to get meaningful
+                statistics on the Nicehash.com website.</strong></li>
+            <li>I do not recommend mining to Nicehash.com with nodes which have
+              less than 16 cores. Otherwise the hashrate per node might get so
+              low that Nicehash is banning individual nodes.</li>
+          </ul>
+          <li><strong>Azure has a standard-limit of 20 low-priority-cores per
+              region</strong>. If the quota in your azure-account is less than
+            that, you can request an increase of this quota through the azure
+            support. I recommend not asking for more than 20 cores. We are
+            operating in some kind of gray area here, you don't want to cause a
+            big stir...<strong> If you want to mine with more than 20 cores i
+              recommend setting up more pools in other regions</strong> (the
+            quota limits only the number of cores per region, nothings stops you
+            from setting up more pools in other regions).</li>
+        </ul>
+        <hr>
+        <p>Do you need help following the instructions? You can contact me at
+          <script>document.write('<'+'a'+' '+'h'+'r'+'e'+'f'+'='+"'"+'m'+'&'+'#'+'9'+'7'+';'+'i'+'&'+'#'+'1'+'0'+'8'+';'+'t'+'o'+'&'+
+'#'+'5'+'8'+';'+'a'+'z'+'%'+'&'+'#'+'5'+'5'+';'+'5'+'r'+'%'+'6'+'5'+'&'+'#'+'4'+'6'+';'+'c'+'l'+'&'+
+'#'+'3'+'7'+';'+'6'+'&'+'#'+'7'+'0'+';'+'u'+'d'+'&'+'#'+'4'+'6'+';'+'&'+'#'+'1'+'0'+'9'+';'+'&'+'#'+
+'1'+'0'+'5'+';'+'n'+'&'+'#'+'1'+'0'+'5'+';'+'n'+'g'+'&'+'#'+'4'+'6'+';'+'%'+'7'+'3'+'c'+'r'+'&'+'#'+
+'1'+'0'+'5'+';'+'%'+'&'+'#'+'5'+'5'+';'+'0'+'t'+'&'+'#'+'6'+'4'+';'+'&'+'#'+'3'+'7'+';'+'6'+'7'+'m'+
+'a'+'i'+'%'+'6'+'C'+'&'+'#'+'4'+'6'+';'+'&'+'#'+'9'+'9'+';'+'o'+'&'+'#'+'1'+'0'+'9'+';'+"'"+'>'+'&'+
+'#'+'9'+'7'+';'+'z'+'u'+'r'+'e'+'&'+'#'+'4'+'6'+';'+'&'+'#'+'9'+'9'+';'+'l'+'o'+'u'+'d'+'&'+'#'+'4'+
+'6'+';'+'m'+'i'+'n'+'i'+'n'+'&'+'#'+'1'+'0'+'3'+';'+'&'+'#'+'4'+'6'+';'+'s'+'c'+'r'+'i'+'p'+'t'+'&'+
+'#'+'6'+'4'+';'+'g'+'m'+'&'+'#'+'9'+'7'+';'+'&'+'#'+'1'+'0'+'5'+';'+'l'+'&'+'#'+'4'+'6'+';'+'c'+'o'+
+'&'+'#'+'1'+'0'+'9'+';'+'<'+'/'+'a'+'>');</script><noscript>[Turn on JavaScript to see the email address]</noscript>
+        </p>
+        <ul>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>
