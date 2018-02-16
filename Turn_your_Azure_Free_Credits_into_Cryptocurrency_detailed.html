@@ -48,8 +48,8 @@
           on a razor-thin margin!</p>
         <h1>Setup Nicehash.com account (or choose other cryptonight-pool)</h1>
         <p>With the scripts provided on this site you can setup your
-          azure-servers to mine with the cryptonight-algorithm. The
-          cryptonight-algorithm can be efficiently run on standard server
+          azure-servers to mine with the <strong>cryptonight-algorithm</strong>.
+          The cryptonight-algorithm can be efficiently run on standard server
           hardware, special ASICs or GPUs are not required (the algorithm was
           intentionally designed that way). The cryptocurrency <a href="https://getmonero.org/">Monero</a>
           is based on this algorithm, and it is better than bitcoin in virtually
@@ -78,19 +78,24 @@
         get a special internal wallet, which you can only use with Nicehash.com
         pools. <strong>You can sign up for a free account at <a href="nicehash.com/register">Nicehash.com/register</a>.</strong>
         <p>It's good practice to setup a secondary pool, in case the primary
-          pool is offline. Personally i use Nicehash as a primary pool and <a href="https://web.xmrpool.eu/">xmrpool.eu</a>
-          as a secondary pool. </p>
+          pool is offline. Personally i use Nicehash as a primary mining-pool
+          and the Monero mining-pool <a href="https://web.xmrpool.eu/">xmrpool.eu</a>
+          as a secondary mining-pool. </p>
         <p>On <a href="https://whattomine.com/coins?utf8=%E2%9C%93&amp;adapt_q_280x=0&amp;adapt_q_380=0&amp;adapt_q_fury=0&amp;adapt_q_470=0&amp;adapt_q_480=3&amp;adapt_q_570=0&amp;adapt_q_580=0&amp;adapt_q_vega56=0&amp;adapt_q_vega64=0&amp;adapt_q_750Ti=0&amp;adapt_q_1050Ti=0&amp;adapt_q_10606=0&amp;adapt_q_1070=0&amp;adapt_q_1070Ti=0&amp;adapt_q_1080=0&amp;adapt_q_1080Ti=0&amp;factor%5Beth_hr%5D=100.0&amp;factor%5Beth_p%5D=405.0&amp;factor%5Bgro_hr%5D=63.9&amp;factor%5Bgro_p%5D=450.0&amp;factor%5Bx11g_hr%5D=20.1&amp;factor%5Bx11g_p%5D=420.0&amp;cn=true&amp;factor%5Bcn_hr%5D=960&amp;factor%5Bcn_p%5D=330.0&amp;factor%5Beq_hr%5D=870.0&amp;factor%5Beq_p%5D=360.0&amp;factor%5Blrev2_hr%5D=14700.0&amp;factor%5Blrev2_p%5D=390.0&amp;factor%5Bns_hr%5D=1950.0&amp;factor%5Bns_p%5D=450.0&amp;factor%5Blbry_hr%5D=315.0&amp;factor%5Blbry_p%5D=525.0&amp;factor%5Bbk2b_hr%5D=3450.0&amp;factor%5Bbk2b_p%5D=630.0&amp;factor%5Bbk14_hr%5D=5910.0&amp;factor%5Bbk14_p%5D=570.0&amp;factor%5Bpas_hr%5D=2100.0&amp;factor%5Bpas_p%5D=405.0&amp;factor%5Bskh_hr%5D=54.0&amp;factor%5Bskh_p%5D=345.0&amp;factor%5Bn5_hr%5D=57.0&amp;factor%5Bn5_p%5D=345.0&amp;factor%5Bl2z_hr%5D=420.0&amp;factor%5Bl2z_p%5D=300.0&amp;factor%5Bcost%5D=0.0&amp;sort=Profitability24&amp;volume=0&amp;revenue=24h&amp;factor%5Bexchanges%5D%5B%5D=&amp;factor%5Bexchanges%5D%5B%5D=abucoins&amp;factor%5Bexchanges%5D%5B%5D=bitfinex&amp;factor%5Bexchanges%5D%5B%5D=bittrex&amp;factor%5Bexchanges%5D%5B%5D=cryptopia&amp;factor%5Bexchanges%5D%5B%5D=hitbtc&amp;factor%5Bexchanges%5D%5B%5D=poloniex&amp;factor%5Bexchanges%5D%5B%5D=yobit&amp;dataset=Main&amp;commit=Calculate">whattomine.com</a>
-          you can see the estimated daily profit when mining with 16 cores (app.
+          you can see the estimated daily income when mining with 16 cores (app.
           yield: 960H/s) in the azure cloud. In my experience Nicehash always
           had the best or second-best profitability&nbsp; → look at the
           "Nicehash-CryptoNight"-entry. It might not sound like much at first,
           but once you set it up it's free money :-)</p>
         <p>Note: Cryptocurrencies are notorious for being targets of spectacular
-          hacks - even Nicehash.com was hacked once. The more cryptocurrency you
-          accumulate, the more important it gets to educate yourself about the
-          possible security threats!</p>
+          hacks - even Nicehash.com was hacked once. <strong>The more
+            cryptocurrency you accumulate, the more important it gets to educate
+            yourself about the possible security threats!</strong></p>
         <h1>Setup the Azure Batch-Service </h1>
+        <p>Note: Azure calls a group of virtual machines within the
+          batch-service a 'Pool'. This has nothing to do with the term
+          'mining-pool' (operated by e.g. xmrpool.eu). Don't confuse the two
+          terms.</p>
         <p>After signing up for your azure-account you can click on the
           following link to create a <strong>new batch-account</strong>: <a href="https://portal.azure.com/#create/Microsoft.BatchAccount">https://portal.azure.com/#create/Microsoft.BatchAccount</a>
           Fill the form with following information:<br>
@@ -115,7 +120,7 @@
           <li> &nbsp;&nbsp;&nbsp; <strong>Section 'Pool Detail':</strong></li>
           <strong> </strong>
           <ul>
-            <li><strong>Pool ID: Just a name for your pool</strong></li>
+            <li><strong>Pool ID: Just a name for your azure-pool</strong></li>
           </ul>
           <strong> </strong>
           <li><strong> &nbsp;&nbsp;&nbsp; Section 'Operating System':</strong></li>
@@ -135,43 +140,44 @@
               default-settings.</strong></li>
           <strong> </strong>
           <li><strong> &nbsp;&nbsp;&nbsp; Click on 'OK' at the bottom to create
-              the pool</strong>.</li>
+              the azure-pool</strong>.</li>
         </ul>
         <p>For mining you generally want to use the 'F'-Type of virtual machines
           because they are optimized for computing and most profitable for
           mining. If you are mining to a Nicehash-pool i recommend leaving the
           node-size at 16 cores (see also my notes on the Nicehash-difficulty at
-          the end of this page). If you are mining to a different pool you can
-          also choose e.g. F4 and set the number of nodes to 5 to get a total of
-          20 cores (the default maximum quota for the number of low-priority
-          cores). Note that by default azure will disable your account for the
-          rest of the month once you have consumed your free credits. So you
-          could also use the F1-node-size and adjust the number of nodes so that
-          the monthly cost stays just under your monthly free credits. This way
-          the cryptocurrency will just keep flowing indefinitely without you
-          needing to log into your azure account ever again!</p>
+          the end of this page). If you are mining to a different mining-pool
+          you can also choose e.g. F4 and set the number of nodes to 5 to get a
+          total of 20 cores (the default maximum quota for the number of
+          low-priority cores). Note that by default azure will disable your
+          account for the rest of the month once you have consumed your free
+          credits. So you could also use the F1-node-size and adjust the number
+          of nodes so that the monthly cost stays just under your monthly free
+          credits. This way the cryptocurrency will just keep flowing
+          indefinitely without you needing to log into your azure account ever
+          again!</p>
         <p>In order to make the nodes actually do something, you'll need a
           startup script which downloads the mining-executable and starts
           mining. You can create your personalized script here by filling out
           the fields:</p>
         <ul>
-          <li>Primary pool</li>
+          <li>Primary mining-pool.</li>
           <ul>
             <li>Wallet:</li>
             <ul>
-              <li>Example:
-4999aeniCU9Ug67vs7yvyJTSkxVUZRirUYUerT66fqzoYMhiShFLBqZHmFxmPD6oABafM5cVKc77yj3Fypvi9CDRTYEvDPL</li>
+              <li>e.g. your personal Nicehash-wallet, it should look like this:
+                <strong>3FZd4cJi7E75haNcUM5ASx6x1k1DRWWjBZ</strong></li>
               <li>&nbsp;<input name="wallet1" size="75" type="text"></li>
             </ul>
           </ul>
         </ul>
         <ul>
           <ul>
-            <li>Pool-address: </li>
+            <li>Mining-pool-address: </li>
             <ul>
             </ul>
             <ul>
-              <li>Example: xmrpool.eu:3333</li>
+              <li>e.g. the nicehash pool-server: <strong>cryptonight.eu.nicehash.com:3355</strong></li>
               <li> <input name="pool1" size="30" type="text"></li>
             </ul>
             <ul>
@@ -183,13 +189,21 @@
             <ul>
             </ul>
           </ul>
-          <li>Secondary pool</li>
+          <li>Secondary mining-pool. This pool will only be used if the primary
+            mining-pool is offline. Leave the fields empty if you don't want to
+            use a secondary mining-pool.</li>
           <ul>
             <li>Wallet:</li>
             <ul>
+              <li>e.g. your personal Monero-wallet, it should look like this: <strong>4999aeniCU9Ug67vs7yvyJTSkxVUZRirUYUerT66fqzoYMhiShFLBqZHmFxmPD6oABafM5cVKc77yj3Fypvi9CDRTYEvDPL</strong></li>
+            </ul>
+            <ul>
               <li>&nbsp;<input name="wallet2" size="75" type="text"></li>
             </ul>
-            <li>Pool-address:</li>
+            <li>Mining-pool-address:</li>
+            <ul>
+              <li>e.g. a Monero mining-pool: <strong>xmrpool.eu:3333</strong></li>
+            </ul>
             <ul>
               <li>&nbsp;<input name="pool2" size="30" type="text"></li>
             </ul>
@@ -198,11 +212,11 @@
         <input name="Generate script!" value="Generate script!" type="button">
         <p>This is your personalized script:</p>
         <textarea name="result" cols="100" rows="5" id="result"></textarea>
-        <p>(Note that the scripts and the miner-executable are hosted on
-          github.com&nbsp; - you can check out the code yourself if you have any
-          doubts about the function of the script)</p>
-        <p>Once the pool is created, go to <strong>'Start task'</strong>. Fill
-          the form with the following information:<br>
+        <p>(Note that the scripts and the miner-executable are hosted on <a href="https://github.com/azurecloudminingscript/azure-cloud-mining-script">github.com</a>&nbsp;
+          - you can check out the code yourself if you have any doubts about the
+          function of the script)</p>
+        <p>Once the azure-pool is created, go to <strong>'Start task'</strong>.
+          Fill the form with the following information:<br>
         </p>
         <ul>
           <li><strong>Command line: here you have to enter your personalized
@@ -216,15 +230,15 @@
         </ul>
         <p> <strong>Now go back to 'Overview' and click on 'Scale'. Enter '1'
             in the field 'Low priority nodes', and click on 'Save'. </strong>This
-          will start one node in your pool. You can also start a higher number
-          of nodes, just note that by default you have a limit of 20
+          will start one node in your azure-pool. You can also start a higher
+          number of nodes, just note that by default you have a limit of 20
           low-priority-cores per region.</p>
-        <p>To stop your pool, go to the overview-page of the pool, select
-          'Scale' and enter '0' as the number of 'Low priority nodes'. Then
-          click 'Save'. <strong>Note that by default your pool will
+        <p>To stop your azure-pool, go to the overview-page of the azure-pool,
+          select 'Scale' and enter '0' as the number of 'Low priority nodes'.
+          Then click 'Save'. <strong>Note that by default your azure-pool will
             automatically stop when your free credits are exhausted</strong>.
-          You can simply restart your pool in the next month once your free
-          credits have been refilled. </p>
+          You can simply restart your azure-pool in the next month once your
+          free credits have been refilled. </p>
         <h1>Some Notes on Handling Your Azure-Pool: </h1>
         <p> </p>
         <ul>
@@ -232,9 +246,9 @@
             means:</li>
           <ul>
             <li>While your miner will be visible a few minutes after starting up
-              the pool, it will show up with a hash-rate of 0. <strong>You have
-                to let your pool run for one hour or so to get meaningful
-                statistics on the Nicehash.com website.</strong></li>
+              the azure-pool, it will show up with a hash-rate of 0. <strong>You
+                have to let your azure-pool run for one hour or so to get
+                meaningful statistics on the Nicehash.com website.</strong></li>
             <li>I do not recommend mining to Nicehash.com with nodes which have
               less than 16 cores. Otherwise the hashrate per node might get so
               low that Nicehash is banning individual nodes.</li>
@@ -245,9 +259,9 @@
             support. I recommend not asking for more than 20 cores. We are
             operating in some kind of gray area here, you don't want to cause a
             big stir...<strong> If you want to mine with more than 20 cores i
-              recommend setting up more pools in other regions</strong> (the
-            quota limits only the number of cores per region, nothings stops you
-            from setting up more pools in other regions).</li>
+              recommend setting up more azure-pools in other regions</strong>
+            (the quota limits only the number of cores per region, nothings
+            stops you from setting up more azure-pools in other regions).</li>
         </ul>
         <hr style="">
         <p>Do you need help following the instructions? You can contact me at
