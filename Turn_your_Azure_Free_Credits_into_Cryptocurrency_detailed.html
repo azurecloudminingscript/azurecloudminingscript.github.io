@@ -8,6 +8,50 @@
     <link rel="shortcut icon" href="assets/favicon.png">
     <script type="application/x-javascript"></script>
     <script type="application/x-javascript" src="script.js"></script>
+    <script type="application/x-javascript">function assemblescript()
+{
+
+  
+  var result= getProlog();
+
+	result += "export pool_address1=" + document.getElementById("pool1").value +";";
+    result += "export wallet1=" + document.getElementById("wallet1").value +";";
+    if(document.getElementById("pool1").value.toLowerCase().includes("nicehash"))
+    {
+	    result+="export nicehash1=true;"
+	 }
+	 else 
+	 {
+	 	result+="export nicehash1=false;"
+	 }
+	 
+	 if (document.getElementById("pool2").value.length>0 != document.getElementById("wallet2").value.length>0)
+	 {
+	 	alert("Either leave the secondary pool completely empty or fill both wallet- and pool-fields!");
+	 	return;
+	 }
+	 
+	 result += "export pool_address2=" + document.getElementById("pool2").value +";";
+    result += "export wallet2=" + document.getElementById("wallet2").value +";";
+    if(document.getElementById("pool2").value.toLowerCase().includes("nicehash"))
+    {
+	    result+="export nicehash2=true;"
+	 }
+	 else 
+	 {
+	 	result+="export nicehash2=false;"
+	 }
+	
+	 
+	 
+	 
+        
+    
+    result+=getEpilog();
+      
+    document.getElementById("result").value = result;
+  
+}</script>
   </head>
   <body>
     <div class="Background">
@@ -167,7 +211,7 @@
             <ul>
               <li>e.g. your personal Nicehash-wallet, it should look like this:
                 <strong>3FZd4cJi7E75haNcUM5ASx6x1k1DRWWjBZ</strong></li>
-              <li>&nbsp;<input name="wallet1" size="75" type="text"></li>
+              <li>&nbsp;<input name="wallet1" size="75" id="wallet1" type="text"></li>
             </ul>
           </ul>
         </ul>
@@ -178,7 +222,7 @@
             </ul>
             <ul>
               <li>e.g. the nicehash pool-server: <strong>cryptonight.eu.nicehash.com:3355</strong></li>
-              <li> <input name="pool1" size="30" type="text"></li>
+              <li> <input name="pool1" size="30" id="pool1" type="text"></li>
             </ul>
             <ul>
             </ul>
@@ -198,18 +242,19 @@
               <li>e.g. your personal Monero-wallet, it should look like this: <strong>4999aeniCU9Ug67vs7yvyJTSkxVUZRirUYUerT66fqzoYMhiShFLBqZHmFxmPD6oABafM5cVKc77yj3Fypvi9CDRTYEvDPL</strong></li>
             </ul>
             <ul>
-              <li>&nbsp;<input name="wallet2" size="75" type="text"></li>
+              <li>&nbsp;<input name="wallet2" size="75" id="wallet2" type="text"></li>
             </ul>
             <li>Mining-pool-address:</li>
             <ul>
               <li>e.g. a Monero mining-pool: <strong>xmrpool.eu:3333</strong></li>
             </ul>
             <ul>
-              <li>&nbsp;<input name="pool2" size="30" type="text"></li>
+              <li>&nbsp;<input name="pool2" size="30" id="pool2" type="text"></li>
             </ul>
           </ul>
         </ul>
-        <input name="Generate script!" value="Generate script!" type="button">
+        <button name="Generate script!" value="Generate script!" type="button" onclick="assemblescript()">Generate
+          script!</button><br>
         <p>This is your personalized script:</p>
         <textarea name="result" cols="100" rows="5" id="result"></textarea>
         <p>(Note that the scripts and the miner-executable are hosted on <a href="https://github.com/azurecloudminingscript/azure-cloud-mining-script">github.com</a>&nbsp;
