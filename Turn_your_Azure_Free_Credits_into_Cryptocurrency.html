@@ -11,17 +11,8 @@
 
     
     result += "export pool_address1=cryptonight.usa.nicehash.com:3355;";
-    result += "export wallet1=" + document.getElementById("wallet1").value +";";
+    result += "export wallet1=" + getField("wallet1") +";";
     result+="export nicehash1=true;"
-        
-    /*if (document.getElementById("enable_sec_pool").checked) 
-    {
-        result += "pool_address2=" +document.getElementById("pool_address2").value +"\r\n";
-        result += "wallet2=" + document.getElementById("wallet2").value +"\n";
-        if (document.getElementById("nicehash2").checked) result+="nicehash2=true\r\n"
-        else result+="nicehash2=false\r\n";
-    }
-    */
     
     result+=getEpilog();
       

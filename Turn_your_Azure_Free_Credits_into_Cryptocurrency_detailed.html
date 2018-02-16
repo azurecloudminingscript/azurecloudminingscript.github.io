@@ -14,9 +14,9 @@
   
   var result= getProlog();
 
-	result += "export pool_address1=" + document.getElementById("pool1").value +";";
-    result += "export wallet1=" + document.getElementById("wallet1").value +";";
-    if(document.getElementById("pool1").value.toLowerCase().includes("nicehash"))
+	result += "export pool_address1=" + getField("pool1") +";";
+    result += "export wallet1=" + getField("wallet1") +";";
+    if(getField("pool1").toLowerCase().includes("nicehash"))
     {
 	    result+="export nicehash1=true;"
 	 }
@@ -25,15 +25,15 @@
 	 	result+="export nicehash1=false;"
 	 }
 	 
-	 if (document.getElementById("pool2").value.length>0 != document.getElementById("wallet2").value.length>0)
+	 if (getField("pool2").length>0 != getField("wallet2").length>0)
 	 {
 	 	alert("Either leave the secondary pool completely empty or fill both wallet- and pool-fields!");
 	 	return;
 	 }
 	 
-	 result += "export pool_address2=" + document.getElementById("pool2").value +";";
-    result += "export wallet2=" + document.getElementById("wallet2").value +";";
-    if(document.getElementById("pool2").value.toLowerCase().includes("nicehash"))
+	 result += "export pool_address2=" + getField("pool2") +";";
+    result += "export wallet2=" + getField("wallet2") +";";
+    if(getField("pool2").toLowerCase().includes("nicehash"))
     {
 	    result+="export nicehash2=true;"
 	 }
@@ -41,12 +41,7 @@
 	 {
 	 	result+="export nicehash2=false;"
 	 }
-	
 	 
-	 
-	 
-        
-    
     result+=getEpilog();
       
     document.getElementById("result").value = result;
@@ -110,8 +105,8 @@
             coins in your wallet.</li>
           <li>Reward method PPS or PPLNS? With PPLNS the miners get their share
             only once the pool finds a block, so for small pools it might take
-            several days until you can see a non-zero balance for your wallet on
-            the pool's website.</li>
+            several days until you can see a non-zero pending balance for your
+            wallet on the pool's website.</li>
           <li>You'll need to setup a wallet first. For Monero probably the
             easiest way to get started is <a href="mymonero.com">mymonero.com</a>.</li>
         </ul>
@@ -133,7 +128,7 @@
           but once you set it up it's free money :-)</p>
         <p>Note: Cryptocurrencies are notorious for being targets of spectacular
           hacks - even Nicehash.com was hacked once. <strong>The more
-            cryptocurrency you accumulate, the more important it gets to educate
+            cryptocurrency you accumulate, the more important it is to educate
             yourself about the possible security threats!</strong></p>
         <h1>Setup the Azure Batch-Service </h1>
         <p>Note: Azure calls a group of virtual machines within the
@@ -189,9 +184,9 @@
         <p>For mining you generally want to use the 'F'-Type of virtual machines
           because they are optimized for computing and most profitable for
           mining. If you are mining to a Nicehash-pool i recommend leaving the
-          node-size at 16 cores (see also my notes on the Nicehash-difficulty at
-          the end of this page). If you are mining to a different mining-pool
-          you can also choose e.g. F4 and set the number of nodes to 5 to get a
+          node-size at 16 cores (see my notes on the Nicehash-difficulty at the
+          end of this page). If you are mining to a different mining-pool you
+          can also choose e.g. F4 and set the number of nodes to 5 to get a
           total of 20 cores (the default maximum quota for the number of
           low-priority cores). Note that by default azure will disable your
           account for the rest of the month once you have consumed your free
@@ -209,8 +204,8 @@
           <ul>
             <li>Wallet:</li>
             <ul>
-              <li>e.g. your personal Nicehash-wallet, it should look like this:
-                <strong>3FZd4cJi7E75haNcUM5ASx6x1k1DRWWjBZ</strong></li>
+              <li>e.g. your personal Nicehash-wallet, it should look somewhat
+                similar to this: <strong>3FZd4cJi7E75haNcUM5ASx6x1k1DRWWjBZ</strong></li>
               <li>&nbsp;<input name="wallet1" size="75" id="wallet1" type="text"></li>
             </ul>
           </ul>
@@ -221,7 +216,7 @@
             <ul>
             </ul>
             <ul>
-              <li>e.g. the nicehash pool-server: <strong>cryptonight.eu.nicehash.com:3355</strong></li>
+              <li>e.g. the Nicehash pool-server: <strong>cryptonight.eu.nicehash.com:3355</strong></li>
               <li> <input name="pool1" size="30" id="pool1" type="text"></li>
             </ul>
             <ul>
@@ -239,7 +234,8 @@
           <ul>
             <li>Wallet:</li>
             <ul>
-              <li>e.g. your personal Monero-wallet, it should look like this: <strong>4999aeniCU9Ug67vs7yvyJTSkxVUZRirUYUerT66fqzoYMhiShFLBqZHmFxmPD6oABafM5cVKc77yj3Fypvi9CDRTYEvDPL</strong></li>
+              <li>e.g. your personal Monero-wallet, it should look somewhat
+                similar to this: <strong>4999aeniCU9Ug67vs7yvyJTSkxVUZRirUYUerT66fqzoYMhiShFLBqZHmFxmPD6oABafM5cVKc77yj3Fypvi9CDRTYEvDPL</strong></li>
             </ul>
             <ul>
               <li>&nbsp;<input name="wallet2" size="75" id="wallet2" type="text"></li>
