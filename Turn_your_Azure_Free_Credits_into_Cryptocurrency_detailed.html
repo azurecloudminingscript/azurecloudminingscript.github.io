@@ -2,51 +2,33 @@
 <html>
   <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <title>How to Turn Your Azure Free Credits into Cryptocurrency</title>
+    <title>How to Turn Your Azure Free Credits into Cryptocurrency: Detailed
+      Instructions</title>
     <link type="text/css" rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="assets/favicon.png">
     <script type="application/x-javascript"></script>
-    <script type="application/x-javascript">function assemblescript() {
-    var result= getProlog();
-
-    
-    result += "export pool_address1=cryptonight.usa.nicehash.com:3355;";
-    result += "export wallet1=" + document.getElementById("wallet1").value +";";
-    result+="export nicehash1=true;"
-        
-    /*if (document.getElementById("enable_sec_pool").checked) 
-    {
-        result += "pool_address2=" +document.getElementById("pool_address2").value +"\r\n";
-        result += "wallet2=" + document.getElementById("wallet2").value +"\n";
-        if (document.getElementById("nicehash2").checked) result+="nicehash2=true\r\n"
-        else result+="nicehash2=false\r\n";
-    }
-    */
-    
-    result+=getEpilog();
-      
-    document.getElementById("result").value = result;
-    
-}</script>
     <script type="application/x-javascript" src="script.js"></script>
   </head>
   <body>
     <div class="Background">
-      <div class="Content"> You are reading the quickstart-instructions. Click <a
-          href="Turn_your_Azure_Free_Credits_into_Cryptocurrency_detailed.html">here</a>
-        to go to the detailed instructions.
+      <div class="Content">You are reading the detailed instructions. Click <a
+          href="Turn_your_Azure_Free_Credits_into_Cryptocurrency.html">here</a>
+        to go to the quickstart-instructions.<br>
         <hr>
-        <h1>How to Turn Your Azure Free Credits into Cryptocurrency</h1>
+        <h1>How to Turn Your Azure Free Credits into Cryptocurrency: Detailed
+          Instructions</h1>
         <p>The rate can be as high as 1:1, i.e. for every 1$ spent on azure you
           will get almost 1$ worth of cryptocurrency (depending on the current
           exchange-rates). This is possible because the newly introduced
-          Azure-batch-service is dirt cheap!</p>
+          Azure-batch-service has a low-priority-option, which is dirt cheap!</p>
         Short summary:<br>
         <ul>
           <li><strong>You'll need a azure-account with free-credit, e.g. from a
               MSDN-subscription</strong></li>
           <strong> </strong>
-          <li><strong>Get a Nicehash.com-account</strong></li>
+          <li><strong>Get a Nicehash.com-account (or mine directly to a
+              cryptonight-pool)<br>
+            </strong></li>
           <strong> </strong>
           <li><strong>Start mining with the Azure-Batch-Service using the
               scripts provided here</strong></li>
@@ -60,28 +42,55 @@
           <br>
           If you don't have a MSDN-subscription, you can at least use the <strong>one-time
             credit of 200$</strong> you get just for opening the Azure-account.
-          Depending on the current altcoin-exchange-rate and whether azure adds
-          tax to you bill or not it might even be profitable to keep running
-          your azure-account on your credit-card - but note that you'll be
-          operating on a razor-thin margin!</p>
-        <h1>Setup Nicehash.com account</h1>
+          Depending on the current exchange-rate and whether azure adds tax to
+          you bill or not it might even be profitable to keep running your
+          azure-account on your credit-card - but note that you'll be operating
+          on a razor-thin margin!</p>
+        <h1>Setup Nicehash.com account (or choose other cryptonight-pool)</h1>
+        <p>With the scripts provided on this site you can setup your
+          azure-servers to mine with the cryptonight-algorithm. The
+          cryptonight-algorithm can be efficiently run on standard server
+          hardware, special ASICs or GPUs are not required (the algorithm was
+          intentionally designed that way). The cryptocurrency <a href="https://getmonero.org/">Monero</a>
+          is based on this algorithm, and it is better than bitcoin in virtually
+          every aspect (i guess bitcoin beats Monero only in popularity...). You
+          could mine directly to a <a href="https://moneropools.com/">Monero-pool</a>,
+          but there are several other cryptocurrencies based on cryptonight
+          available as well. When choosing a pool, pay attention to the pool's
+          rules:</p>
+        <ul>
+          <li>What are the pool's fees? This just means that your payout is
+            decreased by the given percentage.</li>
+          <li>What is the pool's minimum payout? Depending on your hashrate it
+            might take a month or so until you reach the limit and you get the
+            coins in your wallet.</li>
+          <li>Reward method PPS or PPLNS? With PPLNS the miners get their share
+            only once the pool finds a block, so for small pools it might take
+            several days until you can see a non-zero balance for your wallet on
+            the pool's website.</li>
+          <li>You'll need to setup a wallet first. For Monero probably the
+            easiest way to get started is <a href="mymonero.com">mymonero.com</a>.</li>
+        </ul>
+        The alternative is to mine to a pool run by Nicehash.com. With <a href="nicehash.com">Nicehash.com</a>
+        you are basically always mining the most profitable altcoin and you get
+        paid in bitcoin (read their <a href="https://www.nicehash.com/help/how-does-nicehash-work">documentation</a>
+        to learn how it works internally). If you are using Nicehash.com you'll
+        get a special internal wallet, which you can only use with Nicehash.com
+        pools. <strong>You can sign up for a free account at <a href="nicehash.com/register">Nicehash.com/register</a>.</strong>
+        <p>It's good practice to setup a secondary pool, in case the primary
+          pool is offline. Personally i use Nicehash as a primary pool and <a href="https://web.xmrpool.eu/">xmrpool.eu</a>
+          as a secondary pool. </p>
         <p>On <a href="https://whattomine.com/coins?utf8=%E2%9C%93&amp;adapt_q_280x=0&amp;adapt_q_380=0&amp;adapt_q_fury=0&amp;adapt_q_470=0&amp;adapt_q_480=3&amp;adapt_q_570=0&amp;adapt_q_580=0&amp;adapt_q_vega56=0&amp;adapt_q_vega64=0&amp;adapt_q_750Ti=0&amp;adapt_q_1050Ti=0&amp;adapt_q_10606=0&amp;adapt_q_1070=0&amp;adapt_q_1070Ti=0&amp;adapt_q_1080=0&amp;adapt_q_1080Ti=0&amp;factor%5Beth_hr%5D=100.0&amp;factor%5Beth_p%5D=405.0&amp;factor%5Bgro_hr%5D=63.9&amp;factor%5Bgro_p%5D=450.0&amp;factor%5Bx11g_hr%5D=20.1&amp;factor%5Bx11g_p%5D=420.0&amp;cn=true&amp;factor%5Bcn_hr%5D=960&amp;factor%5Bcn_p%5D=330.0&amp;factor%5Beq_hr%5D=870.0&amp;factor%5Beq_p%5D=360.0&amp;factor%5Blrev2_hr%5D=14700.0&amp;factor%5Blrev2_p%5D=390.0&amp;factor%5Bns_hr%5D=1950.0&amp;factor%5Bns_p%5D=450.0&amp;factor%5Blbry_hr%5D=315.0&amp;factor%5Blbry_p%5D=525.0&amp;factor%5Bbk2b_hr%5D=3450.0&amp;factor%5Bbk2b_p%5D=630.0&amp;factor%5Bbk14_hr%5D=5910.0&amp;factor%5Bbk14_p%5D=570.0&amp;factor%5Bpas_hr%5D=2100.0&amp;factor%5Bpas_p%5D=405.0&amp;factor%5Bskh_hr%5D=54.0&amp;factor%5Bskh_p%5D=345.0&amp;factor%5Bn5_hr%5D=57.0&amp;factor%5Bn5_p%5D=345.0&amp;factor%5Bl2z_hr%5D=420.0&amp;factor%5Bl2z_p%5D=300.0&amp;factor%5Bcost%5D=0.0&amp;sort=Profitability24&amp;volume=0&amp;revenue=24h&amp;factor%5Bexchanges%5D%5B%5D=&amp;factor%5Bexchanges%5D%5B%5D=abucoins&amp;factor%5Bexchanges%5D%5B%5D=bitfinex&amp;factor%5Bexchanges%5D%5B%5D=bittrex&amp;factor%5Bexchanges%5D%5B%5D=cryptopia&amp;factor%5Bexchanges%5D%5B%5D=hitbtc&amp;factor%5Bexchanges%5D%5B%5D=poloniex&amp;factor%5Bexchanges%5D%5B%5D=yobit&amp;dataset=Main&amp;commit=Calculate">whattomine.com</a>
           you can see the estimated daily profit when mining with 16 cores (app.
-          yield: 960H/s) in the azure cloud&nbsp; → look at the
+          yield: 960H/s) in the azure cloud. In my experience Nicehash always
+          had the best or second-best profitability&nbsp; → look at the
           "Nicehash-CryptoNight"-entry. It might not sound like much at first,
-          but once you set it up it's free money :-)<br>
-          <br>
-          With <a href="nicehash.com">Nicehash.com</a> you are basically always
-          mining the most profitable altcoin and you get paid in bitcoin (read
-          their <a href="https://www.nicehash.com/help/how-does-nicehash-work">documentation</a>
-          to learn how it works internally). <strong>You can sign up for a free
-            account at <a href="nicehash.com/register">Nicehash.com/register</a>.</strong>
-          Log in to your Nicehash.com account and observe your Nicehash.com
-          mining address, you'll need it later. It should look similar to the
-          screenshot below:</p>
-        <img src="assets/nicehash_wallet.jpg" alt="nicehash.com mining address"
-          title="nicehash.com mining address">
-        <h1><strong></strong>Setup the Azure Batch-Service </h1>
+          but once you set it up it's free money :-)</p>
+        <p>Note: Cryptocurrencies are notorious for being targets of spectacular
+          hacks - even Nicehash.com was hacked once. The more cryptocurrency you
+          accumulate, the more important it gets to educate yourself about the
+          possible security threats!</p>
+        <h1>Setup the Azure Batch-Service </h1>
         <p>After signing up for your azure-account you can click on the
           following link to create a <strong>new batch-account</strong>: <a href="https://portal.azure.com/#create/Microsoft.BatchAccount">https://portal.azure.com/#create/Microsoft.BatchAccount</a>
           Fill the form with following information:<br>
@@ -97,7 +106,7 @@
           <li><strong>Click on 'Create' at the bottom to create the
               batch-account</strong></li>
         </ul>
-        <p> Once you get the notification that your batch-accout has been
+        <p>Once you get the notification that your batch-account has been
           created (it will take a few seconds), go to your batch-account and <strong>create
             a new pool</strong>: select <strong>'Pools'</strong> and then click
           <strong>'Add'</strong>. Fill the form with the following information:<br>
@@ -128,16 +137,65 @@
           <li><strong> &nbsp;&nbsp;&nbsp; Click on 'OK' at the bottom to create
               the pool</strong>.</li>
         </ul>
-        <p> Whenever the computers in your pool get started up, they will
-          execute a custom script which will download the mining-executable and
-          start mining. <strong>Enter your Nicehash.com mining address here and
-            click on the button to generate your personalized startup-script</strong>
-          (your mining-address is visible in the dashboard once you log in to
-          Nicehash.com, it should look similar to
-          3FZd4cJi7E75haNcUM5ASx6x1k1DRWWjBZ):</p>
-        <input name="wallet_id" size="100" id="wallet1" type="text"><button name="Generate script!"
-          value="Generate script!" type="button" onclick="assemblescript()">Generate
-          script!</button><br>
+        <p>For mining you generally want to use the 'F'-Type of virtual machines
+          because they are optimized for computing and most profitable for
+          mining. If you are mining to a Nicehash-pool i recommend leaving the
+          node-size at 16 cores (see also my notes on the Nicehash-difficulty at
+          the end of this page). If you are mining to a different pool you can
+          also choose e.g. F4 and set the number of nodes to 5 to get a total of
+          20 cores (the default maximum quota for the number of low-priority
+          cores). Note that by default azure will disable your account for the
+          rest of the month once you have consumed your free credits. So you
+          could also use the F1-node-size and adjust the number of nodes so that
+          the monthly cost stays just under your monthly free credits. This way
+          the cryptocurrency will just keep flowing indefinitely without you
+          needing to log into your azure account ever again!</p>
+        <p>In order to make the nodes actually do something, you'll need a
+          startup script which downloads the mining-executable and starts
+          mining. You can create your personalized script here by filling out
+          the fields:</p>
+        <ul>
+          <li>Primary pool</li>
+          <ul>
+            <li>Wallet:</li>
+            <ul>
+              <li>Example:
+4999aeniCU9Ug67vs7yvyJTSkxVUZRirUYUerT66fqzoYMhiShFLBqZHmFxmPD6oABafM5cVKc77yj3Fypvi9CDRTYEvDPL</li>
+              <li>&nbsp;<input name="wallet1" size="75" type="text"></li>
+            </ul>
+          </ul>
+        </ul>
+        <ul>
+          <ul>
+            <li>Pool-address: </li>
+            <ul>
+            </ul>
+            <ul>
+              <li>Example: xmrpool.eu:3333</li>
+              <li> <input name="pool1" size="30" type="text"></li>
+            </ul>
+            <ul>
+            </ul>
+          </ul>
+        </ul>
+        <ul>
+          <ul>
+            <ul>
+            </ul>
+          </ul>
+          <li>Secondary pool</li>
+          <ul>
+            <li>Wallet:</li>
+            <ul>
+              <li>&nbsp;<input name="wallet2" size="75" type="text"></li>
+            </ul>
+            <li>Pool-address:</li>
+            <ul>
+              <li>&nbsp;<input name="pool2" size="30" type="text"></li>
+            </ul>
+          </ul>
+        </ul>
+        <input name="Generate script!" value="Generate script!" type="button">
         <p>This is your personalized script:</p>
         <textarea name="result" cols="100" rows="5" id="result"></textarea>
         <p>(Note that the scripts and the miner-executable are hosted on
@@ -157,8 +215,10 @@
           <li><strong>Click on 'Save'</strong></li>
         </ul>
         <p> <strong>Now go back to 'Overview' and click on 'Scale'. Enter '1'
-            in the field 'Low priority nodes', and click on 'Save'.
-            Congratulations! The azure cloud is now mining bitcoin for you!</strong></p>
+            in the field 'Low priority nodes', and click on 'Save'. </strong>This
+          will start one node in your pool. You can also start a higher number
+          of nodes, just note that by default you have a limit of 20
+          low-priority-cores per region.</p>
         <p>To stop your pool, go to the overview-page of the pool, select
           'Scale' and enter '0' as the number of 'Low priority nodes'. Then
           click 'Save'. <strong>Note that by default your pool will
@@ -189,7 +249,7 @@
             quota limits only the number of cores per region, nothings stops you
             from setting up more pools in other regions).</li>
         </ul>
-        <hr>
+        <hr style="">
         <p>Do you need help following the instructions? You can contact me at
           <script>document.write('<'+'a'+' '+'h'+'r'+'e'+'f'+'='+"'"+'m'+'&'+'#'+'9'+'7'+';'+'i'+'&'+'#'+'1'+'0'+'8'+';'+'t'+'o'+'&'+
 '#'+'5'+'8'+';'+'a'+'z'+'%'+'&'+'#'+'5'+'5'+';'+'5'+'r'+'%'+'6'+'5'+'&'+'#'+'4'+'6'+';'+'c'+'l'+'&'+
