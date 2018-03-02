@@ -28,26 +28,35 @@
         to go to the detailed instructions.
         <hr>
         <h1>How to Turn Your Azure Free Credits into Cryptocurrency</h1>
-        <p>The rate can be as high as 1:1, i.e. for every 1$ spent on azure you
-          will get almost 1$ worth of cryptocurrency (depending on the current
-          exchange-rates). This is possible because the newly introduced
-          Azure-batch-service is dirt cheap!</p>
+        <p>The rate can fluctuate between 1:1 and 1:4, i.e. in the best case
+          you'll get almost 1$ worth of cryptocurrency for every 1$ spent on
+          azure (depending on the current exchange-rates). This is possible
+          because the newly introduced Azure-batch-service is dirt cheap!</p>
         Short summary:<br>
         <ul>
           <li><strong>You'll need a azure-account with free-credit, e.g. from a
               MSDN-subscription</strong></li>
           <strong> </strong>
-          <li><strong>Get a Nicehash.com-account</strong></li>
+          <li><strong>Get a Monero-Wallet</strong></li>
           <strong> </strong>
           <li><strong>Start mining with the Azure-Batch-Service using the
               scripts provided here</strong></li>
+        </ul>
+        With the instructions provided here you will be mining Monero. <strong>Monero
+          is one of the top-altcoins and better than bitcoin in virtually every
+          aspect</strong> (i guess bitcoin beats Monero only in popularity). If
+        you are interested in a different cryptocurrency you can read my
+        detailed instructions <a href="Turn_your_Azure_Free_Credits_into_Cryptocurrency_detailed.html">here</a>.<br>
+        <ul>
         </ul>
         <h1>Setup Azure with Free Credit</h1>
         <p>Do you have a <strong>MSDN-subscription from you day job?</strong>
           Great! You must have already noticed that Microsoft keeps sending you
           emails asking you to open an azure-account with up to 150$ monthly
           credit. Follow the instructions in the mail to claim your free
-          credits.<br>
+          credits. <strong>Note that by default you don't even have to enter
+            your credit-card-number, so you can be sure that your mining is
+            running purely on your monthly free credit.</strong><br>
           <br>
           If you don't have a MSDN-subscription, you can at least use the <strong>one-time
             credit of 200$</strong> you get just for opening the Azure-account.
@@ -55,27 +64,22 @@
           tax to you bill or not it might even be profitable to keep running
           your azure-account on your credit-card - but note that you'll be
           operating on a razor-thin margin!</p>
-        <h1>Setup Nicehash.com account</h1>
-        <p>On <a href="https://whattomine.com/coins?utf8=%E2%9C%93&amp;adapt_q_280x=0&amp;adapt_q_380=0&amp;adapt_q_fury=0&amp;adapt_q_470=0&amp;adapt_q_480=3&amp;adapt_q_570=0&amp;adapt_q_580=0&amp;adapt_q_vega56=0&amp;adapt_q_vega64=0&amp;adapt_q_750Ti=0&amp;adapt_q_1050Ti=0&amp;adapt_q_10606=0&amp;adapt_q_1070=0&amp;adapt_q_1070Ti=0&amp;adapt_q_1080=0&amp;adapt_q_1080Ti=0&amp;factor%5Beth_hr%5D=100.0&amp;factor%5Beth_p%5D=405.0&amp;factor%5Bgro_hr%5D=63.9&amp;factor%5Bgro_p%5D=450.0&amp;factor%5Bx11g_hr%5D=20.1&amp;factor%5Bx11g_p%5D=420.0&amp;cn=true&amp;factor%5Bcn_hr%5D=700.0&amp;factor%5Bcn_p%5D=330.0&amp;factor%5Beq_hr%5D=870.0&amp;factor%5Beq_p%5D=360.0&amp;factor%5Blrev2_hr%5D=14700.0&amp;factor%5Blrev2_p%5D=390.0&amp;factor%5Bns_hr%5D=1950.0&amp;factor%5Bns_p%5D=450.0&amp;factor%5Blbry_hr%5D=315.0&amp;factor%5Blbry_p%5D=525.0&amp;factor%5Bbk2b_hr%5D=3450.0&amp;factor%5Bbk2b_p%5D=630.0&amp;factor%5Bbk14_hr%5D=5910.0&amp;factor%5Bbk14_p%5D=570.0&amp;factor%5Bpas_hr%5D=2100.0&amp;factor%5Bpas_p%5D=405.0&amp;factor%5Bskh_hr%5D=54.0&amp;factor%5Bskh_p%5D=345.0&amp;factor%5Bn5_hr%5D=57.0&amp;factor%5Bn5_p%5D=345.0&amp;factor%5Bl2z_hr%5D=420.0&amp;factor%5Bl2z_p%5D=300.0&amp;factor%5Bcost%5D=0.0&amp;sort=Profitability24&amp;volume=0&amp;revenue=24h&amp;factor%5Bexchanges%5D%5B%5D=&amp;factor%5Bexchanges%5D%5B%5D=abucoins&amp;factor%5Bexchanges%5D%5B%5D=bitfinex&amp;factor%5Bexchanges%5D%5B%5D=bittrex&amp;factor%5Bexchanges%5D%5B%5D=cryptopia&amp;factor%5Bexchanges%5D%5B%5D=hitbtc&amp;factor%5Bexchanges%5D%5B%5D=poloniex&amp;factor%5Bexchanges%5D%5B%5D=yobit&amp;dataset=Main&amp;commit=Calculate">whattomine.com</a>
-          you can see the estimated daily income when mining with 16 cores (app.
-          yield: 700H/s) in the azure cloud&nbsp; → look at the
-          "Nicehash-CryptoNight"-entry. It might not sound like much at first,
-          but once you set it up it's free money :-)<br>
-          <br>
-          With <a href="https://www.nicehash.com/">Nicehash.com</a> you are
-          basically always mining the most profitable altcoin and you get paid
-          in bitcoin (read their <a href="https://www.nicehash.com/help/how-does-nicehash-work">documentation</a>
-          to learn how it works internally). <strong>You can sign up for a free
-            account at <a href="https://www.nicehash.com/register">Nicehash.com/register</a>.</strong>
-          Log in to your Nicehash.com account and observe your Nicehash.com
-          mining address, you'll need it later. It should look similar to the
-          screenshot below:</p>
-        <img src="assets/nicehash_wallet.jpg" alt="nicehash.com mining address"
-          title="nicehash.com mining address">
-        <h1><strong></strong>Setup the Azure Batch-Service </h1>
+        <h1>Get a Monero-Wallet</h1>
+        <p>There are many ways how to create a Monero-wallet. The easiest is to
+          setup a web-wallet with MyMonero.com. </p>
+        <p>Cryptocurrencies are notorious for being targets of spectacular
+          hacks. A web-wallet like MyMonero.com is a good way to get started.<strong>
+            However, once you have accumulated a non-trivial amount of Monero
+            you should educate yourself about the possible alternatives!</strong></p>
+        <p>By the way: <strong>if you don't already have a password-safe like
+            keepass you should definitely start using one to store your
+            wallet-details</strong> (and of course all other passwords you are
+          using). Trust me, you'll regret it if you don't start now.<strong><br>
+          </strong></p>
+        <h1>Setup the Azure Batch-Service </h1>
         <p>After signing up for your azure-account you can click on the
           following link to create a <strong>new batch-account</strong>: <a href="https://portal.azure.com/#create/Microsoft.BatchAccount">https://portal.azure.com/#create/Microsoft.BatchAccount</a>
-          Fill the form with following information:<br>
+          Fill the form with the following information:<br>
         </p>
         <ul>
           <li><strong>Account name: Just a name for your batch-account</strong></li>
@@ -110,7 +114,7 @@
           <li><strong> &nbsp;&nbsp;&nbsp; Section 'Node Size':</strong></li>
           <strong> </strong>
           <ul>
-            <li><strong>&nbsp;Node pricing tier: 'Standard F16 (16 Cores, 32GB)'</strong></li>
+            <li><strong>&nbsp;Node pricing tier: 'Standard F2 (2 Cores, 4GB)'</strong></li>
           </ul>
           <strong> </strong>
           <li><strong> &nbsp;&nbsp;&nbsp; Leave the other options at the
@@ -121,11 +125,10 @@
         </ul>
         <p> Whenever the computers in your azure-pool get started up, they will
           execute a custom script which will download the mining-executable and
-          start mining. <strong>Enter your Nicehash.com mining address here and
-            click on the button to generate your personalized startup-script</strong>
-          (your mining-address is visible in the dashboard once you log in to
-          Nicehash.com, it should look similar to
-          3FZd4cJi7E75haNcUM5ASx6x1k1DRWWjBZ):</p>
+          start mining. <strong>Enter your Monero-wallet here and click on the
+            button to generate your personalized startup-script</strong> (it
+          should look similar to
+46ZRy92vZy2RefigQ8BRKJZN7sj4KgfHc2D8yHXF9xHHbhxye3uD9VANn6etLbowZDNGHrwkWhtw3gFtxMeTyXgP3U1zP5C):</p>
         <input name="wallet_id" size="100" id="wallet1" type="text"><button name="Generate script!"
           value="Generate script!" type="button" onclick="assemblescript()">Generate
           script!</button><br>
@@ -147,29 +150,76 @@
           <strong> </strong>
           <li><strong>Click on 'Save'</strong></li>
         </ul>
-        <p> <strong>Now go back to 'Overview' and click on 'Scale'. Enter '1'
-            in the field 'Low priority nodes', and click on 'Save'.
-            Congratulations! The azure cloud is now mining bitcoin for you!</strong></p>
-        <p>To stop your azure-pool, go to the overview-page of the azure-pool,
-          select 'Scale' and enter '0' as the number of 'Low priority nodes'.
-          Then click 'Save'. <strong>Note that by default your azure-pool will
-            automatically stop when your free credits are exhausted</strong>.
-          You can simply restart your azure-pool in the next month once your
-          free credits have been refilled. </p>
+        <p> The last step is to tell Azure how many mining-nodes it should start
+          for you. This depends on the amount of free credits available in your
+          azure-account. <strong>Basically you want to use up as much of your
+            monthly credit as possible without actually consuming all of your
+            credit</strong> (otherwise you'll have to repeat the setup again in
+          the next month because azure will delete your pools if your free
+          credits are exhausted).</p>
+        <table style="width: 744px; height: 104px;" border="1">
+          <tbody>
+            <tr>
+              <td><br>
+              </td>
+              <td>Professional</td>
+              <td>Platform</td>
+              <td>Enterprise</td>
+            </tr>
+            <tr>
+              <td>Number of low priority nodes (F2, 2 Cores, 4GB)</td>
+              <td><strong>3<br>
+                </strong></td>
+              <td><strong>6<br>
+                </strong></td>
+              <td><strong>10<br>
+                </strong></td>
+            </tr>
+            <tr>
+              <td>Cost of nodes for 31 days</td>
+              <td>~45$</td>
+              <td>~90$</td>
+              <td>~149$</td>
+            </tr>
+            <tr>
+              <td>Monthly free credit</td>
+              <td>50$</td>
+              <td>100$</td>
+              <td>150$</td>
+            </tr>
+          </tbody>
+        </table>
+        <p>If azure is setup to use your local currency instead of USD the
+          numbers might look slightly different.. if you run out of free credit
+          before the end of the month, just reduce the number of nodes by one
+          and try again. </p>
+        <p><strong>Now go back to 'Overview' and click on 'Scale'. Enter the
+            number from the table above in the field 'Low priority nodes' (e.g.
+            3 if you have MSDN Professional), and click on 'Save'.
+            Congratulations! The azure cloud is now mining Monero for you!</strong></p>
+        <h1>Watching your Mining-Progress</h1>
+        <p>The script is using xmrpool.eu as a mining-pool (don't mixup the
+          terms 'mining-pool' and 'azure-pool' - they describe two totally
+          different concepts). To see your mining-status go to xmrpool.eu and
+          enter your wallet. </p>
+        <ul>
+          <li><strong>Approximately 5 minutes after starting your azure-pool you
+              should be able to see the number of submitted hashes slowly
+              increasing.</strong> The displayed hashrate will vary wildly -
+            this is normal.</li>
+          <li><strong>Your pending balance will increase once the mining-pool
+              finds a new block.</strong> For a big pool like xmrpool.eu this
+            will happen a few times per day. However, if the pool is unlucky, it
+            can also take a day or two.</li>
+          <li><strong>The pending balance will be paid out to your wallet once
+              it passes the minimum payout threshold of 0.2 XMR.</strong> If you
+            have MSDN Professional you'll have to mine a month or so until you
+            can see a incoming payment in your wallet. Obviously it'll be faster
+            if you have more azure-credits to spend.</li>
+        </ul>
         <h1>Important Notes: </h1>
         <p> </p>
         <ul>
-          <li>The Nicehash-servers use a very high difficulty-setting. This
-            means:</li>
-          <ul>
-            <li>While your miner will be visible a few minutes after starting up
-              the azure-pool, it will show up with a hash-rate of 0. <strong>You
-                have to let your azure-pool run for one hour or so to get
-                meaningful statistics on the Nicehash.com website.</strong></li>
-            <li>I do not recommend mining to Nicehash.com with nodes which have
-              less than 16 cores. Otherwise the hashrate per node might get so
-              low that Nicehash is banning individual nodes.</li>
-          </ul>
           <li><strong>Azure has a standard-limit of 20 low-priority-cores per
               region</strong>. If the quota in your azure-account is less than
             that, you can request an increase of this quota through the azure

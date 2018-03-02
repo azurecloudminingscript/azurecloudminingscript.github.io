@@ -56,10 +56,11 @@
         <hr>
         <h1>How to Turn Your Azure Free Credits into Cryptocurrency: Detailed
           Instructions</h1>
-        <p>The rate can be as high as 1:1, i.e. for every 1$ spent on azure you
-          will get almost 1$ worth of cryptocurrency (depending on the current
-          exchange-rates). This is possible because the newly introduced
-          Azure-batch-service has a low-priority-option, which is dirt cheap!</p>
+        <p>The rate can fluctuate between 1:1 and 1:4, i.e. in the best case
+          you'll get almost 1$ worth of cryptocurrency for every 1$ spent on
+          azure (depending on the current exchange-rates). This is possible
+          because the newly introduced Azure-batch-service has a
+          low-priority-option, which is dirt cheap!</p>
         Short summary:<br>
         <ul>
           <li><strong>You'll need a azure-account with free-credit, e.g. from a
@@ -77,7 +78,9 @@
           Great! You must have already noticed that Microsoft keeps sending you
           emails asking you to open an azure-account with up to 150$ monthly
           credit. Follow the instructions in the mail to claim your free
-          credits.<br>
+          credits. <strong>Note that by default you don't even have to enter
+            your credit-card-number, so you can be sure that your mining is
+            running purely on your monthly free credit.</strong><br>
           <br>
           If you don't have a MSDN-subscription, you can at least use the <strong>one-time
             credit of 200$</strong> you get just for opening the Azure-account.
@@ -110,7 +113,8 @@
           <li>You'll need to setup a wallet first. For Monero probably the
             easiest way to get started is <a href="https://mymonero.com/#/">mymonero.com</a>.</li>
         </ul>
-        The alternative is to mine to a pool run by Nicehash.com. With <a href="https://www.nicehash.com/">Nicehash.com</a>
+        The alternative is to mine to a pool run by Nicehash.com (i recommend
+        mining with Nicehash only if you have MSDN Enterprise). With <a href="https://www.nicehash.com/">Nicehash.com</a>
         you are basically always mining the most profitable altcoin and you get
         paid in bitcoin (read their <a href="https://www.nicehash.com/help/how-does-nicehash-work">documentation</a>
         to learn how it works internally). If you are using Nicehash.com you'll
@@ -172,7 +176,13 @@
           <li><strong> &nbsp;&nbsp;&nbsp; Section 'Node Size':</strong></li>
           <strong> </strong>
           <ul>
-            <li><strong>&nbsp;Node pricing tier: 'Standard F16 (16 Cores, 32GB)'</strong></li>
+            <li><strong>&nbsp;Node pricing tier:</strong></li>
+            <ul>
+              <li><strong>Select&nbsp; 'Standard F16 (16 Cores, 32GB)' when
+                  mining to Nicehash.com</strong></li>
+              <li><strong>Select 'Standard F2 (2Cores, 4GB)' when mining to
+                  other pools</strong></li>
+            </ul>
           </ul>
           <strong> </strong>
           <li><strong> &nbsp;&nbsp;&nbsp; Leave the other options at the
@@ -181,42 +191,27 @@
           <li><strong> &nbsp;&nbsp;&nbsp; Click on 'OK' at the bottom to create
               the azure-pool</strong>.</li>
         </ul>
-        <p>For mining you generally want to use the 'F'-Type of virtual machines
-          because they are optimized for computing and most profitable for
-          mining. If you are mining to a Nicehash-pool i recommend leaving the
-          node-size at 16 cores (see my notes on the Nicehash-difficulty at the
-          end of this page). If you are mining to a different mining-pool you
-          can also choose e.g. F4 and set the number of nodes to 5 to get a
-          total of 20 cores (the default maximum quota for the number of
-          low-priority cores). Note that by default azure will disable your
-          account for the rest of the month once you have consumed your free
-          credits. So you could also use the F1-node-size and adjust the number
-          of nodes so that the monthly cost stays just under your monthly free
-          credits. This way the cryptocurrency will just keep flowing
-          indefinitely without you needing to log into your azure account ever
-          again!</p>
-        <p>In order to make the nodes actually do something, you'll need a
-          startup script which downloads the mining-executable and starts
-          mining. You can create your personalized script here by filling out
-          the fields:</p>
+        In order to make the nodes actually do something, you'll need a startup
+        script which downloads the mining-executable and starts mining. You can
+        create your personalized script here by filling out the fields:
         <ul>
           <li>Primary mining-pool.</li>
           <ul>
-            <li>Wallet:</li>
+            <li>Wallet for primary mining-pool:</li>
             <ul>
-              <li>e.g. your personal Nicehash-wallet, it should look somewhat
-                similar to this: <strong>3FZd4cJi7E75haNcUM5ASx6x1k1DRWWjBZ</strong></li>
+              <li>e.g. your personal Monero-wallet, it should look somewhat
+                similar to this: <strong>4999aeniCU9Ug67vs7yvyJTSkxVUZRirUYUerT66fqzoYMhiShFLBqZHmFxmPD6oABafM5cVKc77yj3Fypvi9CDRTYEvDPL</strong></li>
               <li>&nbsp;<input name="wallet1" size="75" id="wallet1" type="text"></li>
             </ul>
           </ul>
         </ul>
         <ul>
           <ul>
-            <li>Mining-pool-address: </li>
+            <li>Address of primary mining-pool: </li>
             <ul>
             </ul>
             <ul>
-              <li>e.g. the Nicehash pool-server: <strong>cryptonight.eu.nicehash.com:3355</strong></li>
+              <li>e.g. a Monero mining-pool: <strong>xmrpool.eu:3333</strong><strong></strong></li>
               <li> <input name="pool1" size="30" id="pool1" type="text"></li>
             </ul>
             <ul>
@@ -232,18 +227,11 @@
             mining-pool is offline. Leave the fields empty if you don't want to
             use a secondary mining-pool.</li>
           <ul>
-            <li>Wallet:</li>
-            <ul>
-              <li>e.g. your personal Monero-wallet, it should look somewhat
-                similar to this: <strong>4999aeniCU9Ug67vs7yvyJTSkxVUZRirUYUerT66fqzoYMhiShFLBqZHmFxmPD6oABafM5cVKc77yj3Fypvi9CDRTYEvDPL</strong></li>
-            </ul>
+            <li>Wallet for secondary mining-pool:</li>
             <ul>
               <li>&nbsp;<input name="wallet2" size="75" id="wallet2" type="text"></li>
             </ul>
-            <li>Mining-pool-address:</li>
-            <ul>
-              <li>e.g. a Monero mining-pool: <strong>xmrpool.eu:3333</strong></li>
-            </ul>
+            <li>Address of secondary mining-pool:</li>
             <ul>
               <li>&nbsp;<input name="pool2" size="30" id="pool2" type="text"></li>
             </ul>
@@ -269,31 +257,109 @@
           <strong> </strong>
           <li><strong>Click on 'Save'</strong></li>
         </ul>
-        <p> <strong>Now go back to 'Overview' and click on 'Scale'. Enter '1'
-            in the field 'Low priority nodes', and click on 'Save'. </strong>This
-          will start one node in your azure-pool. You can also start a higher
-          number of nodes, just note that by default you have a limit of 20
-          low-priority-cores per region.</p>
-        <p>To stop your azure-pool, go to the overview-page of the azure-pool,
-          select 'Scale' and enter '0' as the number of 'Low priority nodes'.
-          Then click 'Save'. <strong>Note that by default your azure-pool will
-            automatically stop when your free credits are exhausted</strong>.
-          You can simply restart your azure-pool in the next month once your
-          free credits have been refilled. </p>
+        <p> The last step is to tell Azure how many mining-nodes it should start
+          for you. This depends on the amount of free credits available in your
+          azure-account. <strong>Basically you want to use up as much of your
+            monthly credit as possible without actually consuming all of your
+            credit</strong> (otherwise you'll have to repeat the setup again in
+          the next month because azure will delete your pools if your free
+          credits are exhausted).</p>
+        <table style="width: 744px; height: 104px;" border="1">
+          <tbody>
+            <tr>
+              <td><br>
+              </td>
+              <td>Professional</td>
+              <td>Platform</td>
+              <td>Enterprise</td>
+            </tr>
+            <tr>
+              <td>Number of low priority nodes (F2, 2 Cores, 4GB)</td>
+              <td><strong>3<br>
+                </strong></td>
+              <td><strong>6<br>
+                </strong></td>
+              <td><strong>10<br>
+                </strong></td>
+            </tr>
+            <tr>
+              <td>Total number of active cores</td>
+              <td>6</td>
+              <td>12</td>
+              <td>20</td>
+            </tr>
+            <tr>
+              <td>Cost of nodes for 31 days</td>
+              <td>~45$</td>
+              <td>~90$</td>
+              <td>~149$</td>
+            </tr>
+            <tr>
+              <td>Monthly free credit</td>
+              <td>50$</td>
+              <td>100$</td>
+              <td>150$</td>
+            </tr>
+          </tbody>
+        </table>
+        <p>If azure is setup to use your local currency instead of USD the
+          numbers might look slightly different.. if you run out of free credit
+          before the end of the month, just reduce the number of nodes by one
+          and try again.&nbsp;</p>
+        <p><strong>Now go back to 'Overview' and click on 'Scale'. Enter the
+            number from the table above in the field 'Low priority nodes' (e.g.
+            3 if you have MSDN Professional), and click on 'Save'.
+            Congratulations! The azure cloud is now mining cryptocurrency for
+            you!</strong></p>
+        <p>If you have MSDN Enterprise you can also setup two azure-pools: One
+          pool with a single F16-Node to mine to Nicehash, and a second pool
+          with two F2-Nodes mining to xmrpool.eu (this will result in a total of
+          20 active cores).</p>
+        To stop your azure-pool, go to the overview-page of the azure-pool,
+        select 'Scale' and enter '0' as the number of 'Low priority nodes'. Then
+        click 'Save'. <strong>Note that by default your azure-pool will
+          automatically stop when your free credits are exhausted</strong>. You
+        can simply restart your azure-pool in the next month once your free
+        credits have been refilled.
+        <h1>Watching your Mining-Progress</h1>
+        <p><strong>If you are using a mining-pool like xmrpool.eu</strong> you
+          can see your mining-status if you go to the pool's homepage (e.g.
+          xmrpool.eu) and enter your wallet.</p>
+        <ul>
+          <li><strong>Approximately 5 minutes after starting your azure-pool you
+              should be able to see the number of submitted hashes slowly
+              increasing.</strong> The displayed hashrate will vary wildly -
+            this is normal.</li>
+          <li><strong>Your pending balance will increase once the mining-pool
+              finds a new block.</strong> For a big pool like xmrpool.eu this
+            will happen a few times per day. However, if the pool is unlucky, it
+            can also take a day or two.</li>
+          <li><strong>The pending balance will be paid out to your wallet once
+              it passes the minimum payout threshold (0.2 XMR for xmrpool.eu).</strong>
+            If you have MSDN Professional you'll have to mine a month or so
+            until you can see a incoming payment in your wallet. Obviously it'll
+            be faster if you have more azure-credits to spend.</li>
+        </ul>
+        <strong>If you are mining with Nicehash.com</strong> you have to login
+        and go to the dashboard to see the statistics. The Nicehash-servers use
+        a very high difficulty-setting. This means:
+        <ul>
+          <li>While your miner will be visible a few minutes after starting up
+            the azure-pool, it will show up with a hash-rate of 0. <strong>You
+              have to let your azure-pool run for one hour or so to get
+              meaningful statistics on the Nicehash.com website.</strong></li>
+          <li>I do not recommend mining to Nicehash.com with nodes which have
+            less than 16 cores. Otherwise the hashrate per node might get so low
+            that Nicehash is banning individual nodes.</li>
+          <li><strong>You are mining to an internal wallet which is not part of
+              the bitcoin-blockchain</strong>. Read the documentation to see the
+            different options and fees to transfer your balance to a real
+            bitcoin wallet. </li>
+        </ul>
+        <strong></strong>
         <h1>Important Notes: </h1>
         <p> </p>
         <ul>
-          <li>The Nicehash-servers use a very high difficulty-setting. This
-            means:</li>
-          <ul>
-            <li>While your miner will be visible a few minutes after starting up
-              the azure-pool, it will show up with a hash-rate of 0. <strong>You
-                have to let your azure-pool run for one hour or so to get
-                meaningful statistics on the Nicehash.com website.</strong></li>
-            <li>I do not recommend mining to Nicehash.com with nodes which have
-              less than 16 cores. Otherwise the hashrate per node might get so
-              low that Nicehash is banning individual nodes.</li>
-          </ul>
           <li><strong>Azure has a standard-limit of 20 low-priority-cores per
               region</strong>. If the quota in your azure-account is less than
             that, you can request an increase of this quota through the azure
