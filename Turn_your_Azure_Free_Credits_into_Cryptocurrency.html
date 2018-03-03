@@ -25,7 +25,7 @@
     <div class="Background">
       <div class="Content"> You are reading the quickstart-instructions. Click <a
           href="Turn_your_Azure_Free_Credits_into_Cryptocurrency_detailed.html">here</a>
-        to go to the detailed instructions.
+        to go to the detailed instructions (basic mining-knowledge is required).
         <hr>
         <h1>How to Turn Your Azure Free Credits into Cryptocurrency</h1>
         <p>The rate can fluctuate between 1:1 and 1:4, i.e. in the best case
@@ -42,11 +42,11 @@
           <li><strong>Start mining with the Azure-Batch-Service using the
               scripts provided here</strong></li>
         </ul>
-        With the instructions provided here you will be mining Monero. <strong>Monero
-          is one of the top-altcoins and better than bitcoin in virtually every
-          aspect</strong> (i guess bitcoin beats Monero only in popularity). If
-        you are interested in a different cryptocurrency you can read my
-        detailed instructions <a href="Turn_your_Azure_Free_Credits_into_Cryptocurrency_detailed.html">here</a>.<br>
+        With the instructions provided here you will be mining Monero. <strong><a
+            href="https://getmonero.org/">Monero</a> is one of the top-altcoins
+          and better than bitcoin in virtually every aspect</strong> (i guess
+        bitcoin beats Monero only in popularity). If you are interested in a
+        different cryptocurrency you can read my detailed instructions <a href="Turn_your_Azure_Free_Credits_into_Cryptocurrency_detailed.html">here</a>.<br>
         <ul>
         </ul>
         <h1>Setup Azure with Free Credit</h1>
@@ -66,15 +66,17 @@
           operating on a razor-thin margin!</p>
         <h1>Get a Monero-Wallet</h1>
         <p>There are many ways how to create a Monero-wallet. The easiest is to
-          setup a web-wallet with MyMonero.com. </p>
+          setup a web-wallet with <a href="https://mymonero.com/">MyMonero.com</a>.
+        </p>
         <p>Cryptocurrencies are notorious for being targets of spectacular
           hacks. A web-wallet like MyMonero.com is a good way to get started.<strong>
             However, once you have accumulated a non-trivial amount of Monero
             you should educate yourself about the possible alternatives!</strong></p>
-        <p>By the way: <strong>if you don't already have a password-safe like
-            keepass you should definitely start using one to store your
-            wallet-details</strong> (and of course all other passwords you are
-          using). Trust me, you'll regret it if you don't start now.<strong><br>
+        <p>By the way: <strong>if you don't already have a password-safe like <a
+              href="https://www.keepassx.org/"> keepass</a> you should
+            definitely start using one to store your wallet-details</strong>
+          (and of course all other passwords you are using). Trust me, you'll
+          regret it if you don't start now.<strong><br>
           </strong></p>
         <h1>Setup the Azure Batch-Service </h1>
         <p>After signing up for your azure-account you can click on the
@@ -92,7 +94,7 @@
           <li><strong>Click on 'Create' at the bottom to create the
               batch-account</strong></li>
         </ul>
-        <p> Once you get the notification that your batch-accout has been
+        <p> Once you get the notification that your batch-account has been
           created (it will take a few seconds), go to your batch-account and <strong>create
             a new pool</strong>: select <strong>'Pools'</strong> and then click
           <strong>'Add'</strong>. Fill the form with the following information:<br>
@@ -127,8 +129,8 @@
           execute a custom script which will download the mining-executable and
           start mining. <strong>Enter your Monero-wallet here and click on the
             button to generate your personalized startup-script</strong> (it
-          should look similar to
-46ZRy92vZy2RefigQ8BRKJZN7sj4KgfHc2D8yHXF9xHHbhxye3uD9VANn6etLbowZDNGHrwkWhtw3gFtxMeTyXgP3U1zP5C):</p>
+          should look similar to&nbsp; </p>
+        <p>4999aeniCU9Ug67vs7yvyJTSkxVUZRirUYUerT66fqzoYMhiShFLBqZHmFxmPD6oABafM5cVKc77yj3Fypvi9CDRTYEvDPL):</p>
         <input name="wallet_id" size="100" id="wallet1" type="text"><button name="Generate script!"
           value="Generate script!" type="button" onclick="assemblescript()">Generate
           script!</button><br>
@@ -189,19 +191,20 @@
             </tr>
           </tbody>
         </table>
-        <p>If azure is setup to use your local currency instead of USD the
-          numbers might look slightly different.. if you run out of free credit
-          before the end of the month, just reduce the number of nodes by one
-          and try again. </p>
+        <p>If azure is using your local currency instead of USD the numbers
+          might look slightly different. If you run out of free credit before
+          the end of the month, just reduce the number of nodes by one and try
+          again. </p>
         <p><strong>Now go back to 'Overview' and click on 'Scale'. Enter the
             number from the table above in the field 'Low priority nodes' (e.g.
             3 if you have MSDN Professional), and click on 'Save'.
             Congratulations! The azure cloud is now mining Monero for you!</strong></p>
         <h1>Watching your Mining-Progress</h1>
-        <p>The script is using xmrpool.eu as a mining-pool (don't mixup the
-          terms 'mining-pool' and 'azure-pool' - they describe two totally
-          different concepts). To see your mining-status go to xmrpool.eu and
-          enter your wallet. </p>
+        <p>The script is using <a href="https://web.xmrpool.eu/">xmrpool.eu</a>
+          as a mining-pool (don't mixup the terms 'mining-pool' and 'azure-pool'
+          - they describe two totally different concepts). To see your
+          mining-status, go to <a href="https://web.xmrpool.eu/">xmrpool.eu</a>,
+          scroll down to the bottom of the page and enter your wallet. </p>
         <ul>
           <li><strong>Approximately 5 minutes after starting your azure-pool you
               should be able to see the number of submitted hashes slowly
