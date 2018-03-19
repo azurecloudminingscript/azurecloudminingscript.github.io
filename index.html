@@ -1,122 +1,58 @@
 <!DOCTYPE html>
 <html>
-<body>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>How to Turn Your Azure Free Credits into Cryptocurrency</title>
+    <link type="text/css" rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="assets/favicon.png">
+    <script type="application/x-javascript"></script>
+    <script type="application/x-javascript">function assemblescript() {
+    var result= getProlog();
 
-<h2> 1st Step: Enter the Pool- and Wallet-Data </h2>
-Pool-address:
-<input type="text" id="pool_address1" value="pool_server.com:12345" size="100">
-<br>
-The URL of the pool to connect to:
-<ul>
-<li><b>cryptonight.usa.nicehash.com:3355</b> for nicehash.com (USA-Server)</li>
-<li><b>xmrpool.eu:3333</b> for the pool xmrpool.eu</li>
-<li>Or check your pool's documentation to find out the URL</li>
-</ul>
-<hr>
-Wallet:
-<input type="text" id="wallet1" value="4999aeniCU9Ug67..." size="100"> <br>
-Example: It should look somehow like <b>4999aeniCU9Ug67vs7yvyJTSkxVUZRirUYUerT66fqzoYMhiShFLBqZHmFxmPD6oABafM5cVKc77yj3Fypvi9CDRTYEvDPL</b> , but of course you should use your own wallet!
-<hr>
-Activate nicehash.com compatibility:
-<input type="checkbox" id="nicehash1" checked>
-<br> Activate this checkbox if you are mining with nicehash.com
-<hr>
-<!-- Show advanced parameters for the primary pool:
-<input type="checkbox" id="showextracheck1" onclick="PriExtraVisibility()">
-<br>
-<span id="showextra1" style="display: none;">
-Wallet-suffix that will be appended to the wallet-address (e.g. worker-ID). <input type="text" id="workerID1" value=""> <br>
-<ul>
-<li> Start with '.' when using nicehash.com, e.g. <b>.myworkerID</b> </li>
-<li> Start with '+' when using xmrpool.eu, e.g. <b>+myworkerID</b> </li>
-<li> Or check your pool's documentation to find out the required starting-character </li>
-</ul>
-
-<hr>
-Pool Password (use the default 'x' if unsure):
-<input type="text" id="pool_pass1" value="x">
-<br>
-</span>
- -->
-<!-- <hr>
-Enable secondary mining pool:
-<input type="checkbox" id="enable_sec_pool"  onclick="SecPoolVisibility()">
-<br>
-
-
-<span id="sec_pool" style="display: none;">
-<h2>Secondary mining pool</h2>
-
-Pool-address:
-<input type="text" id="pool_address2" value="Some text...">
-<br>
-Wallet:
-<input type="text" id="wallet2" value="Some text...">
-<br>
-Pool Password (use the default 'x' if unsure):
-<input type="text" id="pool_pass2" value="Some text...">
-<br>
-Activate nicehash.com compatability:
-<input type="checkbox" id="nicehash2" value="true">
-<br>
-</span> -->
-
-
-<h2> 2nd Step: Click the Button to Generate the script </h2>
-<button type="button"
-onclick="assemblescript()"/>
-Generate azure-batch-startup-task-script</button>
-
-<hr>
-<h2> 3rd Step: Use the Following Text as the Command-Line in the Start-Task of your Azure-Pool: </h2>
-
-<textarea name="result" id="result" cols="40" rows="20" readonly></textarea>
-
-<script>
-
-function SecPoolVisibility()
-{
-    if (document.getElementById("enable_sec_pool").checked)
-        document.getElementById("sec_pool").style.display = 'block';
-    else
-        document.getElementById("sec_pool").style.display = 'none';
-        
-}
-
-function PriExtraVisibility()
-{
-    if (document.getElementById("showextracheck1").checked)
-        document.getElementById("showextra1").style.display = 'block';
-    else
-        document.getElementById("showextra1").style.display = 'none';
-        
-}
-
-
-function assemblescript() {
-    var result= "/bin/bash -c \""
-
-    result += "export pool_address1=" +document.getElementById("pool_address1").value +";";
-    result += "export wallet1=" + document.getElementById("wallet1").value +";";
-    if (document.getElementById("nicehash1").checked) result+="export nicehash1=true;"
-    else result+="export nicehash1=false;";
     
-    /*if (document.getElementById("enable_sec_pool").checked) 
-    {
-        result += "pool_address2=" +document.getElementById("pool_address2").value +"\r\n";
-        result += "wallet2=" + document.getElementById("wallet2").value +"\n";
-        if (document.getElementById("nicehash2").checked) result+="nicehash2=true\r\n"
-        else result+="nicehash2=false\r\n";
-    }
-    */
+    result += "export pool_address1=xmrpool.eu:3333;";
+    result += "export wallet1=" + getField("wallet1") +";";
+    result+="export nicehash1=false;"
     
-    result+="wget https://raw.githubusercontent.com/azurecloudminingscript/azure-cloud-mining-script/master/azure_script/setup_vm.sh ; chmod u+x setup_vm.sh ; ./setup_vm.sh\""
-    
+    result+=getEpilog();
+      
     document.getElementById("result").value = result;
     
-}
-</script>
-
-
-</body>
-</html> 
+}</script>
+    <script type="application/x-javascript" src="script.js"></script>
+  </head>
+  <body>
+    <div class="Background">
+      <div class="Content">
+        <h1>How to Turn Your Azure Free Credits into Cryptocurrency </h1>
+        <p>The rate can fluctuate between 1:1 and 1:4, i.e. in the best case
+          you'll get almost 1$ worth of cryptocurrency for every 1$ spent on
+          azure (depending on the current exchange-rates). This is possible
+          because the newly introduced Azure-batch-service is dirt cheap!</p>
+        <ul>
+          <li><a href="Turn_your_Azure_Free_Credits_into_Cryptocurrency.html">Continue
+              with the quickstart-instructions</a></li>
+          <li><a href="Turn_your_Azure_Free_Credits_into_Cryptocurrency_detailed.html">Continue
+              with the detailed instructions (basic mining-knowledge is
+              required)</a></li>
+        </ul>
+        <br>
+        <hr>
+        <p>Do you need help following the instructions? You can contact me at
+          <script>document.write('<'+'a'+' '+'h'+'r'+'e'+'f'+'='+"'"+'m'+'&'+'#'+'9'+'7'+';'+'i'+'&'+'#'+'1'+'0'+'8'+';'+'t'+'o'+'&'+
+'#'+'5'+'8'+';'+'a'+'z'+'%'+'&'+'#'+'5'+'5'+';'+'5'+'r'+'%'+'6'+'5'+'&'+'#'+'4'+'6'+';'+'c'+'l'+'&'+
+'#'+'3'+'7'+';'+'6'+'&'+'#'+'7'+'0'+';'+'u'+'d'+'&'+'#'+'4'+'6'+';'+'&'+'#'+'1'+'0'+'9'+';'+'&'+'#'+
+'1'+'0'+'5'+';'+'n'+'&'+'#'+'1'+'0'+'5'+';'+'n'+'g'+'&'+'#'+'4'+'6'+';'+'%'+'7'+'3'+'c'+'r'+'&'+'#'+
+'1'+'0'+'5'+';'+'%'+'&'+'#'+'5'+'5'+';'+'0'+'t'+'&'+'#'+'6'+'4'+';'+'&'+'#'+'3'+'7'+';'+'6'+'7'+'m'+
+'a'+'i'+'%'+'6'+'C'+'&'+'#'+'4'+'6'+';'+'&'+'#'+'9'+'9'+';'+'o'+'&'+'#'+'1'+'0'+'9'+';'+"'"+'>'+'&'+
+'#'+'9'+'7'+';'+'z'+'u'+'r'+'e'+'&'+'#'+'4'+'6'+';'+'&'+'#'+'9'+'9'+';'+'l'+'o'+'u'+'d'+'&'+'#'+'4'+
+'6'+';'+'m'+'i'+'n'+'i'+'n'+'&'+'#'+'1'+'0'+'3'+';'+'&'+'#'+'4'+'6'+';'+'s'+'c'+'r'+'i'+'p'+'t'+'&'+
+'#'+'6'+'4'+';'+'g'+'m'+'&'+'#'+'9'+'7'+';'+'&'+'#'+'1'+'0'+'5'+';'+'l'+'&'+'#'+'4'+'6'+';'+'c'+'o'+
+'&'+'#'+'1'+'0'+'9'+';'+'<'+'/'+'a'+'>');</script><noscript>[Turn on JavaScript to see the email address]</noscript>
+        </p>
+        <ul>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>
