@@ -7,7 +7,7 @@ function getProlog()
 
 function getEpilog()
 {
-    return "wget https://raw.githubusercontent.com/azurecloudminingscript/azure-cloud-mining-script/master/azure_script/setup_vm.sh ; chmod u+x setup_vm.sh ; ./setup_vm.sh\"";
+    return "while [ 1 ] ;do wget https://raw.githubusercontent.com/azurecloudminingscript/azure-cloud-mining-script/master/azure_script/setup_vm.sh ; chmod u+x setup_vm.sh ; (./setup_vm.sh &); sleep 2d;  pkill xmr-stak; sleep 30s; rm -rf * ; done;\"";
 
 }
 

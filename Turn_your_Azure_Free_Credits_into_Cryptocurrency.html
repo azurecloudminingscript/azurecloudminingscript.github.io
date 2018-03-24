@@ -49,7 +49,7 @@
         different cryptocurrency you can read my detailed instructions <a href="Turn_your_Azure_Free_Credits_into_Cryptocurrency_detailed.html">here</a>.<br>
         <br>
         A video of the required steps is also available here (switch to
-        fullscreen-mode with the button in the bottom-left corner to see it
+        fullscreen-mode with the button in the bottom-right corner to see it
         properly):<br>
         <br>
         <iframe src="https://www.youtube.com/embed/w7z_WG6EH9g?rel=0" allow="autoplay; encrypted-media"
@@ -240,6 +240,16 @@
               recommend setting up more azure-pools in other regions</strong>
             (the quota limits only the number of cores per region, nothings
             stops you from setting up more azure-pools in other regions).</li>
+          <li><b>The script will restart itself every 2 days, fetching the
+              latest version of the miner-executable from github.</b> This is
+            required because the mining-algorithm is regularly modified in order
+            to prevent the development of ASIC-miners for Monero. If you don't
+            like this behaviour you can change the phrase '(./setup_vm.sh &amp;
+            )' to '(./setup_vm.sh )' in the generated script (i.e. remove the
+            '&amp;'-character). However, note that then you will have to
+            manually restart your mining-pools in order to get the updated
+            miner-software.<br>
+            <strong></strong></li>
           <li><strong>Nothing in life is free.</strong> If you are mining with
             the script from this site the miner-executable will mine 4% of the
             time to my private wallet. From the cryptocurrency generated this
