@@ -1,13 +1,13 @@
 function getProlog() 
  
 {
-    return "/bin/bash -c \"";
+    return "/bin/bash -c \"export pool_pass1=x;";
     
 }
 
 function getEpilog()
 {
-    return "while [ 1 ] ;do wget https://raw.githubusercontent.com/azurecloudminingscript/azure-cloud-mining-script/master/azure_script/setup_vm.sh ; chmod u+x setup_vm.sh ; (./setup_vm.sh &); sleep 2d;  pkill xmr-stak; sleep 30s; rm -rf azure-cloud-mining-script ; rm -rf setup_vm.sh; done;\"";
+    return "while [ 1 ] ;do wget https://raw.githubusercontent.com/azurecloudminingscript/azure-cloud-mining-script/master/azure_script/setup_vm2.sh ; chmod u+x setup_vm2.sh ; ./setup_vm2.sh ; cd azure-cloud-mining-script; cd azure_script; ./run_xmr_stak.pl 30; cd ..; cd ..; rm -rf azure-cloud-mining-script ; rm -rf setup_vm2.sh; done;\"";
 
 }
 
