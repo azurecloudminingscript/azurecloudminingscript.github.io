@@ -10,7 +10,8 @@
     var result= getProlog();
 
     
-    result += "export pool_address1=xmrpool.eu:3333;";
+    result += "export pool_pass1=x:azurecloudminingscript;";
+    result += "export pool_address1=pool.supportxmr.com:5555;";
     result += "export wallet1=" + getField("wallet1") +";";
     result+="export nicehash1=false;"
     
@@ -63,9 +64,15 @@
           credit. Follow the instructions in the mail to claim your free
           credits. <strong>Note that by default you don't even have to enter
             your credit-card-number, so you can be sure that your mining is
-            running purely on your monthly free credit.</strong><br>
-          <br>
-          If you don't have a MSDN-subscription, you can at least use the <strong>one-time
+            running purely on your monthly free credit.</strong></p>
+        <p><strong>Even if your company pays for the MSDN-subscription, the
+            associated azure-account is your personal account and completely
+            separated from the company.</strong> Your boss has no way of
+          accessing it. Microsoft encourages people to use the free credits for
+          testing and learning, and this is what you'll do: learning about using
+          the azure-cloud and the blockchain-technology in a very practical way
+          :-)</p>
+        <p> If you don't have a MSDN-subscription, you can at least use the <strong>one-time
             credit of 200$</strong> you get just for opening the Azure-account.
           Depending on the current altcoin-exchange-rate and whether azure adds
           tax to you bill or not it might even be profitable to keep running
@@ -215,25 +222,32 @@
             3 if you have MSDN Professional), and click on 'Save'.
             Congratulations! The azure cloud is now mining Monero for you!</strong></p>
         <h1>Watching your Mining-Progress</h1>
-        <p>The script is using <a href="https://web.xmrpool.eu/">xmrpool.eu</a>
-          as a mining-pool (don't mixup the terms 'mining-pool' and 'azure-pool'
-          - they describe two totally different concepts). To see your
-          mining-status, go to <a href="https://web.xmrpool.eu/">xmrpool.eu</a>,
+        <p>The script is using <a href="https://supportxmr.com/">supportXMR.com</a>
+          <span style="color: #0000ee;"></span>as a mining-pool (don't mixup the
+          terms 'mining-pool' and 'azure-pool' - they describe two totally
+          different concepts). To see your mining-status, go to <a href="https://supportxmr.com/#/dashboard">supportXMR.com/#/dashboard</a>
+          (or click on the "Dashboard"-link on the left pane of the homepage),
           scroll down to the bottom of the page and enter your wallet. </p>
         <ul>
-          <li><strong>Approximately 5 minutes after starting your azure-pool you
-              should be able to see the number of submitted hashes slowly
-              increasing.</strong> The displayed hashrate will vary wildly -
-            this is normal.</li>
+          <li><strong>The VM takes around 5 minutes to startup and compile the
+              mining-software. After that will see the number of submitted
+              hashes slowly increasing.</strong> The displayed hashrate will
+            vary wildly - this is normal.</li>
           <li><strong>Your pending balance will increase once the mining-pool
-              finds a new block.</strong> For a big pool like xmrpool.eu this
-            will happen a few times per day. However, if the pool is unlucky, it
-            can also take a day or two.</li>
+              finds a new block and it reaches the maturity depth.</strong> For
+            a big pool like supportXMR.com this will take an hour or so.
+            However, if the pool is unlucky, it can also take longer.</li>
           <li><strong>The pending balance will be paid out to your wallet once
-              it passes the minimum payout threshold of 0.1 XMR.</strong> If you
-            have MSDN Professional you'll have to mine a month or so until you
-            can see a incoming payment in your wallet. Obviously it'll be faster
-            if you have more azure-credits to spend.</li>
+              it passes the minimum payout threshold. </strong>The default
+            threshold is 0.3 XMR.</li>
+          <li><strong>The script on this site sets the default-password for the
+              login to supportXMR.com to 'azurecloudminingscript'. After logging
+              in you can change the password and reduce the payment threshold
+              down to 0.1 XMR (note that the pool will charge higher fees for
+              transferring smaller amounts). </strong>If you have MSDN
+            Professional you'll have to mine a month or so until you reach 0.1
+            XMR and you can see a incoming payment in your wallet. Obviously
+            it'll be faster if you have more azure-credits to spend.</li>
         </ul>
         <h1>Important Notes: </h1>
         <p> </p>
@@ -255,6 +269,24 @@
               difficulty of the pool), not from the number of hashes your miner
               has actually calculated.<br>
               <strong></strong></li>
+          </ul>
+          <li><strong>Options for optimizing your hashrate</strong><strong><br>
+            </strong></li>
+          <ul>
+            <li>In my experience <strong>azure-pools with fewer nodes result in
+                the highest hashrate</strong>. So instead of setting up one
+              azure-pool with e.g. 10 nodes you can setup 5 pools with only 2
+              nodes (you can use the identical startup-script for all
+              azure-pools). This is because azure tends to allocate all nodes of
+              a pool on a single physical CPU. </li>
+            <li>You can also experiment with <strong>setting up your
+                azure-pools in different regions</strong>. However, note that
+              only few regions are actually available for use with free credits
+              (East US, Southeast Asia and a few more) and that other regions
+              may be more expensive than East US (if necessary, you'll have to
+              reduce the total number of nodes to stay within your monthly free
+              credits)</li>
+            <li><strong>All in all you can expect around 60-70H/s per used core.</strong></li>
           </ul>
           <li><strong>Azure has a standard-limit of 20 low-priority-cores per
               region</strong>. If the quota in your azure-account is less than

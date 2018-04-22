@@ -1,7 +1,7 @@
 function getProlog() 
  
 {
-    return "/bin/bash -c \"export pool_pass1=x;";
+    return "/bin/bash -c \"";
     
 }
 
