@@ -14,6 +14,7 @@
   
   var result= getProlog();
 
+	result += "export currency=" + getField("currency") +";";
   result += "export pool_pass1=x;";
   result += "export pool_address1=" + getField("pool1") +";";
     result += "export wallet1=" + getField("wallet1") +";";
@@ -69,7 +70,7 @@
           <li><strong>You'll need a azure-account with free-credit, e.g. from a
               MSDN-subscription</strong></li>
           <strong> </strong>
-          <li><strong>Chose a Monero-pool and setup a Wallet<br>
+          <li><strong>Chose a mining-pool and setup a wallet<br>
             </strong></li>
           <strong> </strong>
           <li><strong>Start mining with the Azure-Batch-Service using the
@@ -97,21 +98,23 @@
           you bill or not it might even be profitable to keep running your
           azure-account on your credit-card - but note that you'll be operating
           on a razor-thin margin!</p>
-        <h1>Chose CryptonightV7-Pool</h1>
-        <p>With the scripts provided on this site you can mine with the <strong>cryptonightV7-algorithm</strong>.
-          The cryptocurrency <a href="https://getmonero.org/">Monero</a> is
-          based on this algorithm, and it was forked beginning of 2018 from the
-          standard cryptonight-algorithm. This site focuses only on the
-          V7-variant of the algorithm because recently a ASIC for
-          standard-cryptonight was released which will soon push all CPU- and
-          GPU-miners out of this market (the purpose of the fork was to avoid
-          exactly this fate for Monero). </p>
-        <p>The anti-ASIC-stance means that Monero will stay decentralized, but
-          there are many more advantages to it. In fact, i think Monero is
-          better than bitcoin in virtually every aspect (i guess bitcoin beats
-          Monero only in popularity...).</p>
-        <p> <strong>To start mining you first have to choose a <a href="https://moneropools.com/">Monero-pool</a>.
-          </strong>Pay attention to the pool's rules:</p>
+        <h1>Chose Mining-Pool</h1>
+        <p>The scripts provided on this site support mining with two different
+          algorithms:</p>
+        <ul>
+          <li><strong>CryptonightV7: </strong><a href="https://getmonero.org/">Monero</a>
+            (XMR) is based on this algorithm.</li>
+          <li><strong>Cryptonight-Heavy</strong>: <a href="https://www.sumokoin.org/">Sumokoin</a>
+            (SUMO) is based on this algorithm.</li>
+        </ul>
+        Other coins might also work if they are based on these algorithms (there
+        is an <a href="https://bitcointalk.org/index.php?topic=3129218.0">overview</a>
+        of possible coins at the bitcointalk-forum). The original
+        Cryptonight-algorithm is not supported: recently a ASIC for this
+        algorithm was released which made CPU-mining totally impractical. <br>
+        <p> <strong>To start mining you first have to choose a <a href="https://moneropools.com/">Monero-pool</a>
+            or a <a href="http://www.sumopools.com/">Sumokoin-pool</a>. </strong>Pay
+          attention to the pool's rules:</p>
         <ul>
           <li>What are the pool's fees? This just means that your payout is
             decreased by the given percentage.</li>
@@ -122,10 +125,16 @@
             only once the pool finds a block, so for small pools it might take
             several days until you can see a non-zero pending balance for your
             wallet on the pool's website.</li>
-          <li>You'll need to setup a wallet first. For Monero probably the
-            easiest way to get started is <a href="https://mymonero.com/#/">mymonero.com</a>
+        </ul>
+        You'll also need to setup a wallet:
+        <ul>
+          <li>For Monero probably the easiest way to get started is using a
+            webwallet from <a href="https://mymonero.com/#/">mymonero.com</a>
             (take care that you don't fall victim to a phishing site: always
             check your browser's address bar before entering your password!).</li>
+          <li>For Sumokoin unfortunately a webwallet is not yet available.
+            Either create a paper-wallet with <a href="https://wallet.sumokoin.com/">wallet.sumokoin.com</a>
+            or use the official wallet-software from <a href="https://www.sumokoin.org/">sumokoin.org</a></li>
         </ul>
         <strong></strong>You have the option to setup a secondary pool, so that
         your VM's can keep working even if your primary pool is offline.<br>
@@ -137,11 +146,12 @@
         <h1>Setup the Azure Batch-Service </h1>
         <p>Note: Azure calls a group of virtual machines within the
           batch-service a 'Pool'. This has nothing to do with the term
-          'supportXMR.com' (operated by e.g. xmrpool.eu). Don't confuse the two
+          'mining-pool' (operated by e.g. supportXMR.com). Don't confuse the two
           terms.</p>
         <p>After signing up for your azure-account you can click on the
-          following link to create a <strong>new batch-account</strong>: <a href="https://portal.azure.com/#create/Microsoft.BatchAccount">https://portal.azure.com/#create/Microsoft.BatchAccount</a>
-          Fill the form with following information:<br>
+          following link to create a <strong>new batch-account</strong>: <a href="https://portal.azure.com/#create/Microsoft.BatchAccount">https://portal.azure.com/#create/Microsoft.BatchAccount</a>.
+          <strong>I recommend using Chrome to access the azure-portal.</strong>
+          Fill the form with the following information:<br>
         </p>
         <ul>
           <li><strong>Account name: Just a name for your batch-account</strong></li>
@@ -193,12 +203,18 @@
         script which downloads the mining-executable and starts mining. You can
         create your personalized script here by filling out the fields:
         <ul>
+          <li>Currency to mine:<br>
+            <select name="currency" id="currency">
+              <option value="monero7">Monero (CryptonightV7)</option>
+              <option value="sumokoin">Sumokoin (Cryptonight-Heavy)</option>
+            </select>
+          </li>
           <li>Primary mining-pool.</li>
           <ul>
             <li>Wallet for primary mining-pool:</li>
             <ul>
-              <li>Your personal Monero-wallet. A random string of characters
-                similar to: <strong>4999aeniCU9Ug67vs7yvyJTSkxVUZRirUYUerT66fqzoYMhiShFLBqZHmFxmPD6oABafM5cVKc77yj3Fypvi9CDRTYEvDPL</strong></li>
+              <li>Your personal wallet. A random string of characters similar
+                to: <strong>4999aeniCU9Ug67vs7yvyJTSkxVUZRirUYUerT66fqzoYMhiShFLBqZHmFxmPD6oABafM5cVKc77yj3Fypvi9CDRTYEvDPL</strong></li>
               <li>&nbsp;<input name="wallet1" size="75" id="wallet1" type="text"></li>
             </ul>
           </ul>
@@ -210,6 +226,7 @@
             </ul>
             <ul>
               <li>e.g. a Monero mining-pool: <strong>pool.supportxmr.com:5555</strong></li>
+              <li>or a Sumokoin-pool: <strong>pool.sumokoin.hashvault.pro:5555</strong></li>
               <strong></strong>
               <li> <strong><input name="pool1" size="30" id="pool1" type="text"></strong></li>
             </ul>
@@ -252,8 +269,8 @@
           Fill the form with the following information:<br>
         </p>
         <ul>
-          <li><strong>Command line: here you have to enter your personalized
-              script from the textfield above</strong></li>
+          <li><strong>Command line: here you have to copy&amp;paste your
+              personalized script from the textfield above</strong></li>
           <strong> </strong>
           <li><strong>User identity: 'Task Autouser, Admin'</strong></li>
           <strong> </strong>
@@ -328,11 +345,11 @@
           If your are using <a href="https://supportxmr.com/">supportXMR.com</a></strong>
         <span style="color: #0000ee;"></span>you can see your mining-status if
         you go to the pool's dashboard <a href="https://supportxmr.com/#/dashboard">supportXMR.com/#/dashboard</a>
-        (or click on the "Dashboard"-link on the left pane of the homepage),
-        scroll down to the bottom of the page and enter your wallet.
+        (or click on the "Dashboard"-link on the left pane of the pool's
+        homepage), scroll down to the bottom of the page and enter your wallet.
         <ul>
           <li><strong>The VM takes around 5 minutes to startup and compile the
-              mining-software. After that will see the number of submitted
+              mining-software. After that you will see the number of submitted
               hashes slowly increasing.</strong> The displayed hashrate will
             vary wildly - this is normal.</li>
           <li><strong>Your pending balance will increase once the mining-pool
@@ -396,7 +413,9 @@
               may be more expensive than East US (if necessary, you'll have to
               reduce the total number of nodes to stay within your monthly free
               credits)</li>
-            <li><strong>All in all you can expect around 70H/s per used core.</strong><br>
+            <li><strong>All in all you can expect around 70H/s per used core
+                when mining Monero and around 55H/s per used core when mining
+                Sumokoin.</strong><br>
               <strong></strong></li>
           </ul>
           <li><strong>Azure has a standard-limit of 20 low-priority-cores per
