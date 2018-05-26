@@ -10,11 +10,11 @@
     var result= getProlog();
 
     
-    result += "export pool_pass1=x:azurecloudminingscript;";
+    result += "export pool_pass1=${AZ_BATCH_POOL_ID}:azurecloudminingscript;";
     result += "export pool_address1=pool.supportxmr.com:5555;";
     result += "export wallet1=" + getField("wallet1") +";";
     result+="export nicehash1=false;"
-    result += "export pool_pass2=x:azurecloudminingscript;";
+    result += "export pool_pass2=${AZ_BATCH_POOL_ID}:azurecloudminingscript;";
     result += "export pool_address2=pool-ca.supportxmr.com:5555;";
     result += "export wallet2=" + getField("wallet1") +";";
     result+="export nicehash2=false;"
