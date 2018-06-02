@@ -104,16 +104,20 @@
         <ul>
           <li><strong>CryptonightV7: </strong><a href="https://getmonero.org/">Monero</a>
             (XMR) is based on this algorithm.</li>
-          <li><strong>Cryptonight-Heavy</strong>: <a href="https://www.sumokoin.org/">Sumokoin</a>
-            (SUMO) is based on this algorithm.</li>
+          <li><strong>Cryptonight-Heavy</strong></li>
         </ul>
+        <strong>Note: Sumokoin is forking back to original Cryptonight, which
+          means it will no longer be mineable with the script from this site. If
+          you are currently mining Sumokoin i strongly advise you to change to
+          some other coin (e.g. Monero).<br>
+        </strong><br>
         Other coins might also work if they are based on these algorithms (there
         is an <a href="https://bitcointalk.org/index.php?topic=3129218.0">overview</a>
-        of possible coins at the bitcointalk-forum). The original
+        of possible coins at the bitcointalk-forum. The original
         Cryptonight-algorithm is not supported: recently a ASIC for this
         algorithm was released which made CPU-mining totally impractical. <br>
         <p> <strong>To start mining you first have to choose a <a href="https://moneropools.com/">Monero-pool</a>
-            or a <a href="http://www.sumopools.com/">Sumokoin-pool</a>. </strong>Pay
+            (or pool for the CNv7 or CN-Heavy-coin of your choice). </strong>Pay
           attention to the pool's rules:</p>
         <ul>
           <li>What are the pool's fees? This just means that your payout is
@@ -132,9 +136,8 @@
             webwallet from <a href="https://mymonero.com/#/">mymonero.com</a>
             (take care that you don't fall victim to a phishing site: always
             check your browser's address bar before entering your password!).</li>
-          <li>For Sumokoin unfortunately a webwallet is not yet available.
-            Either create a paper-wallet with <a href="https://wallet.sumokoin.com/">wallet.sumokoin.com</a>
-            or use the official wallet-software from <a href="https://www.sumokoin.org/">sumokoin.org</a></li>
+          <li>If you want to mine a different CNv7 or CN-Heavy coin read the
+            coin's homepage for information on how to create a wallet. </li>
         </ul>
         <strong></strong>You have the option to setup a secondary pool, so that
         your VM's can keep working even if your primary pool is offline.<br>
@@ -206,7 +209,7 @@
           <li>Currency to mine:<br>
             <select name="currency" id="currency">
               <option value="monero7">Monero (CryptonightV7)</option>
-              <option value="sumokoin">Sumokoin (Cryptonight-Heavy)</option>
+              <option value="sumokoin">Cryptonight-Heavy</option>
             </select>
           </li>
           <li>Primary mining-pool.</li>
@@ -226,7 +229,7 @@
             </ul>
             <ul>
               <li>e.g. a Monero mining-pool: <strong>pool.supportxmr.com:5555</strong></li>
-              <li>or a Sumokoin-pool: <strong>pool.sumokoin.hashvault.pro:5555</strong></li>
+              <li>or the address of a CNv7 or CN-Heady-pool of your choice<strong></strong></li>
               <strong></strong>
               <li> <strong><input name="pool1" size="30" id="pool1" type="text"></strong></li>
             </ul>
