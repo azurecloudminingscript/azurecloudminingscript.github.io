@@ -106,10 +106,10 @@
             (XMR) is based on this algorithm.</li>
           <li><strong>Cryptonight-Heavy</strong></li>
         </ul>
-        <strong>Note: Sumokoin is forking back to original Cryptonight, which
-          means it will no longer be mineable with the script from this site. If
-          you are currently mining Sumokoin i strongly advise you to change to
-          some other coin (e.g. Monero).<br>
+        <strong>Note: Sumokoin has forked back to original Cryptonight, which
+          means it will no longer be mineable with the script from this site.
+          You'll have to ditch Sumokoin and re-create your startup-script to
+          keep mining.<br>
         </strong><br>
         Other coins might also work if they are based on these algorithms (there
         is an <a href="https://bitcointalk.org/index.php?topic=3129218.0">overview</a>
@@ -206,13 +206,24 @@
         script which downloads the mining-executable and starts mining. You can
         create your personalized script here by filling out the fields:
         <ul>
-          <li>Currency to mine:<br>
-            <select name="currency" id="currency">
-              <option value="monero7">Monero (CryptonightV7)</option>
-              <option value="cryptonight_v7">Generic CryptonightV7</option>
-              <option value="cryptonight_heavy">Generic Cryptonight-Heavy</option>
-            </select>
-          </li>
+          <li>Currency to mine:</li>
+          <ul>
+            <li><strong>Monero: Choose this if you are mining XMR.</strong> The
+              regular algorithm-change will be automatically taken care of with
+              this option (currently it will result in the
+              CryptonightV7-algorithm)</li>
+            <li><strong>Generic CryptonightV7: Choose this for
+                CryptonightV7-coins other than XMR</strong>. Also choose this if
+              you are mining at a pool with auto-selection of coins like <a href="https://moneroocean.stream/">MoneroOcean.stream</a></li>
+            <li><strong>Generic Cryptonight-Heavy: Choose this for
+                Cryptonight-Heavy-coins.</strong><br>
+              <select name="currency" id="currency">
+                <option value="monero7">Monero (CryptonightV7)</option>
+                <option value="cryptonight_v7">Generic CryptonightV7</option>
+                <option value="cryptonight_heavy">Generic Cryptonight-Heavy</option>
+              </select>
+            </li>
+          </ul>
           <li>Primary mining-pool.</li>
           <ul>
             <li>Wallet for primary mining-pool:</li>
@@ -229,8 +240,44 @@
             <ul>
             </ul>
             <ul>
-              <li>e.g. a Monero mining-pool: <strong>pool.supportxmr.com:5555</strong></li>
-              <li>or the address of a CNv7 or CN-Heady-pool of your choice<strong></strong></li>
+              <li>some examples of pool-addresses (i am not affiliated with any
+                of the pools. I have personally used them, though):<br>
+                <table style="width: 100%" border="1">
+                  <tbody>
+                    <tr>
+                      <td>Pool-Name</td>
+                      <td>Payout-Currency</td>
+                      <td>Required Currency-Setting</td>
+                      <td>Mining-Address</td>
+                    </tr>
+                    <tr>
+                      <td><a href="https://www.supportxmr.com">supportXMR.com</a><br>
+                        (Monero-pool)<span style="color: #0000ee;"><br>
+                        </span></td>
+                      <td>XMR</td>
+                      <td>Monero (CryptonightV7)</td>
+                      <td><strong>pool.supportxmr.com:5555</strong></td>
+                    </tr>
+                    <tr>
+                      <td><a href="https://moneroocean.stream">MoneroOcean</a><br>
+                        (pool with auto-selection of CNv7-coins)</td>
+                      <td>XMR</td>
+                      <td>Generic CryptonightV7</td>
+                      <td><strong>gulf.moneroocean.stream:10001</strong></td>
+                    </tr>
+                    <tr>
+                      <td><a href="https://loki.hashvault.pro">Loki Hash Vault</a><br>
+                        (LOKI-pool)</td>
+                      <td>LOKI</td>
+                      <td>Generic Cryptonight-Heavy</td>
+                      <td><strong>pool.loki.hashvault.pro:3333</strong></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </li>
+              <ul>
+              </ul>
+              <li>or the address of a CNv7 or CN-Heavy-pool of your choice<strong></strong></li>
               <strong></strong>
               <li> <strong><input name="pool1" size="30" id="pool1" type="text"></strong></li>
             </ul>
@@ -419,7 +466,7 @@
               credits)</li>
             <li><strong>All in all you can expect around 70H/s per used core
                 when mining Monero and around 55H/s per used core when mining
-                Sumokoin.</strong><br>
+                CN-Heavy.</strong><br>
               <strong></strong></li>
           </ul>
           <li><strong>Many pools support assigning a worker-ID to your miners.</strong>
