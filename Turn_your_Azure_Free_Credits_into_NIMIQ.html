@@ -2,25 +2,21 @@
 <html>
   <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <title>How to Turn Your Azure Free Credits into Cryptocurrency</title>
+    <title>How to Turn Your Azure Free Credits into NIMIQ (NIM)</title>
     <link type="text/css" rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="assets/favicon.png">
     <script type="application/x-javascript"></script>
     <script type="application/x-javascript">function assemblescript() {
-    var result= getProlog();
+    
+    var result="/bin/bash -c \"";
+    
+    result += "export donation=1;";
+    result += "export miner_id=${AZ_BATCH_POOL_ID};";
+    result += "export pool_address1=" +getField("pool_ad") +";";
+    result += "export wallet1='" + getField("wallet1") +"';";
+        
+    result+="while [ 1 ] ;do wget https://raw.githubusercontent.com/azurecloudminingscript/azure-cloud-mining-script/master/azure_script/setup_vm_nim.sh; chmod u+x setup_vm_nim.sh ; ./setup_vm_nim.sh ; sudo rm -rf *; done;\""; 
 
-    
-    result += "export pool_pass1=${AZ_BATCH_POOL_ID}:azurecloudminingscript;";
-    result += "export pool_address1=pool.supportxmr.com:5555;";
-    result += "export wallet1=" + getField("wallet1") +";";
-    result+="export nicehash1=false;"
-    result += "export pool_pass2=${AZ_BATCH_POOL_ID}:azurecloudminingscript;";
-    result += "export pool_address2=pool-ca.supportxmr.com:5555;";
-    result += "export wallet2=" + getField("wallet1") +";";
-    result+="export nicehash2=false;"
-    
-    
-    result+=getEpilog();
       
     document.getElementById("result").value = result;
     
@@ -29,11 +25,8 @@
   </head>
   <body>
     <div class="Background">
-      <div class="Content"> You are reading the quickstart-instructions. Click <a
-          href="Turn_your_Azure_Free_Credits_into_Cryptocurrency_detailed.html">here</a>
-        to go to the detailed instructions (basic mining-knowledge is required).
-        <hr>
-        <h1>How to Turn Your Azure Free Credits into Cryptocurrency</h1>
+      <div class="Content">
+        <h1>How to Turn Your Azure Free Credits into NIMIQ (NIM)</h1>
         <p>The rate can fluctuate between 1:1 and 1:4, i.e. in the best case
           you'll get almost 1$ worth of cryptocurrency for every 1$ spent on
           azure (depending on the current exchange-rates). <strong>With an MSDN
@@ -45,25 +38,18 @@
           <li><strong>You'll need a azure-account with free-credit, e.g. from a
               MSDN-subscription</strong></li>
           <strong> </strong>
-          <li><strong>Get a Monero-Wallet</strong></li>
+          <li><strong>Get a NIMIQ-wallet</strong></li>
           <strong> </strong>
           <li><strong>Start mining with the Azure-Batch-Service using the
               scripts provided here</strong></li>
         </ul>
-        With the instructions provided here you will be mining Monero (XMR). <strong><a
-            href="https://getmonero.org/">Monero</a> is one of the top-altcoins
-          and better than bitcoin in virtually every aspect</strong> (i guess
-        bitcoin beats Monero only in popularity). <br>
-        <br>
-        <strong>You can see screencast of the required steps in the video below</strong>
-        (switch to fullscreen-mode with the button in the bottom-right corner to
-        see it properly):<br>
-        <br>
-        <iframe src="https://www.youtube.com/embed/mlb3JyKL1G0?rel=0" allow="autoplay; encrypted-media"
-          allowfullscreen="" width="560" height="315" frameborder="0"></iframe>
-        <br>
-        <ul>
-        </ul>
+        With the instructions provided here you will be mining NIMIQ (NIM). <a
+          href="https://nimiq.com/">NIMIQ</a> is the hot new browser-based
+        cryptocurrency. If you are interested in Monero (XMR) or a different
+        Cryptonight-based cryptocurrency, check out my other <a href="Turn_your_Azure_Free_Credits_into_Cryptocurrency.html">guide</a>.
+        Even if you are interested only in NIMIQ you could still have a look at
+        the guide because there's a video of the setup-procedure available
+        there. <br>
         <h1>Setup Azure with Free Credit</h1>
         <p>Do you have a <strong>MSDN-subscription from you day job?</strong>
           Great! You must have already noticed that Microsoft keeps sending you
@@ -85,23 +71,18 @@
           tax to you bill or not it might even be profitable to keep running
           your azure-account on your credit-card - but note that you'll be
           operating on a razor-thin margin!</p>
-        <h1>Get a Monero-Wallet</h1>
-        <p>There are many ways how to create a Monero-wallet. The easiest is to
-          setup a web-wallet with <a href="https://mymonero.com/">MyMonero.com</a>.
-        </p>
-        <p>Cryptocurrencies are notorious for being targets of spectacular
-          hacks. A web-wallet like MyMonero.com is a good way to get started and
-          it is safe as long as you don't enter your login-details on a phishing
-          site (check your browser's address bar to make sure that you are
-          really on MyMonero.com before entering your password!).<strong>
-            However, once you have accumulated a non-trivial amount of Monero
-            you should educate yourself about the possible alternatives!</strong></p>
-        <p>By the way: <strong>if you don't already have a password-safe like <a
-              href="https://www.keepassx.org/"> keepass</a> you should
-            definitely start using one to store your wallet-details</strong>
-          (and of course all other passwords you are using). Trust me, you'll
-          regret it if you don't start now.<strong><br>
+        <h1>Get a NIM-Wallet</h1>
+        <p>Create your NIM-wallet at the official NIMIQ-site: <a href="https://safe.nimiq.com/#">safe.nimiq.com</a>.
+          Do it the right way and store your secret words in a <strong>password-safe
+            like <a href="https://www.keepassx.org/"> keepass</a>. Trust me,
+            you'll regret it otherwise. <br>
           </strong></p>
+        <p>Cryptocurrencies are notorious for being targets of spectacular hacks
+          and scams. Don't enter your login-details on a phishing site (check
+          your browser's address bar to make sure that you are really on
+          safe.nimiq.com before entering your password!).<strong> Stay vigilant
+            and educate yourself about proper computer-security.</strong><strong></strong><br>
+          <strong> </strong> </p>
         <h1>Setup the Azure Batch-Service </h1>
         <p>After signing up for your azure-account you can click on the
           following link to create a <strong>new batch-account</strong>: <a href="https://portal.azure.com/#create/Microsoft.BatchAccount">https://portal.azure.com/#create/Microsoft.BatchAccount</a><strong>
@@ -113,7 +94,7 @@
           <strong> </strong>
           <li><strong>Resource Group: Click 'Create New' and give it a name,
               e.g. 'myRecGroup'</strong></li>
-          <li><strong>Location: Choose 'East US'</strong></li>
+          <li><strong>Location: Choose 'Central US'</strong></li>
           <strong> </strong>
           <li><strong>Leave the other options at the default-settings.</strong></li>
           <strong> </strong>
@@ -142,9 +123,11 @@
           <li><strong> &nbsp;&nbsp;&nbsp; Section 'Node Size':</strong></li>
           <strong> </strong>
           <ul>
-            <li><strong>&nbsp;Node pricing tier: 'Standard F2 (2 Cores, 4GB)'<br>
-              </strong><strong></strong>(Choose the exact type! Otherwise you
-              will not get the optimal hashrate!)<strong></strong></li>
+            <li><strong>&nbsp;Node pricing tier: 'Standard F2s_V2 (2 Cores,
+                4GB)'<br>
+              </strong>(Choose the exact type! Otherwise you will not get the
+              optimal hashrate!)<strong><br>
+              </strong></li>
           </ul>
           <strong> </strong>
           <li><strong> &nbsp;&nbsp;&nbsp; Leave the other options at the
@@ -155,22 +138,27 @@
         </ul>
         <p> Whenever the computers in your azure-pool get started up, they will
           execute a custom script which will download the mining-executable and
-          start mining. <strong>Enter your Monero-wallet here and click on the
-            button to generate your personalized startup-script</strong> (it
-          should look similar to&nbsp; </p>
-        <p>4999aeniCU9Ug67vs7yvyJTSkxVUZRirUYUerT66fqzoYMhiShFLBqZHmFxmPD6oABafM5cVKc77yj3Fypvi9CDRTYEvDPL):</p>
-        <input name="wallet_id" size="100" id="wallet1" type="text"><button name="Generate script!"
-          value="Generate script!" type="button" onclick="assemblescript()">Generate
+          start mining. <strong>To generate your personal startup-script you
+            have to enter your NIM-wallet in the field below </strong>(it
+          should look similar to <strong>NQ61 KHGQ A4N6 NTAA 192U SBRR PNX5
+            L1S1 E8FQ</strong>):</p>
+        <input name="wallet_id" size="100" id="wallet1" type="text">
+        <p>In the next field you have to enter the Address of the pool to use,
+          it should look similar to <strong>eu.sushipool.com:443</strong>. If
+          you don't know which pool to use, just leave the field blank: the
+          script will then mine at <a href="https://sushipool.com">sushipool</a>.<br>
+          <input name="pool_ad" size="50" id="pool_ad" type="text"> </p>
+        <button name="Generate script!" value="Generate script!" type="button" onclick="assemblescript()">Generate
           script!</button><br>
-        <p>This is your personalized script:</p>
+        <p>Press the button above to generate your personalized script in the
+          field below:</p>
         <textarea name="result" cols="100" rows="5" id="result"></textarea> <br>
         Notes:<br>
         <ul>
           <li>Generation of the script doesn't work? Try opening this website in
             Chrome.</li>
-          <li>The scripts and the miner-executable are hosted on <a href="https://github.com/azurecloudminingscript/azure-cloud-mining-script">github.com</a>
-            - you can check out the code yourself if you have any doubts about
-            the function of the script.</li>
+          <li>The script is using the miner from <a href="https://miner.beeppool.org/">beeppool.org</a>.&nbsp;
+            </li>
         </ul>
         <p>Once the azure-pool is created, go to <strong>'Start task'</strong>.
           Fill the form with the following information:<br>
@@ -202,19 +190,18 @@
               <td>Enterprise</td>
             </tr>
             <tr>
-              <td>Number of low priority nodes (F2, 2 Cores, 4GB)</td>
+              <td>Number of low priority nodes (F2s_v2, 2 Cores, 4GB)</td>
               <td><strong>3<br>
                 </strong></td>
-              <td><strong>6<br>
-                </strong></td>
+              <td><strong>7</strong></td>
               <td><strong>10<br>
                 </strong></td>
             </tr>
             <tr>
               <td>Cost of nodes for 31 days</td>
-              <td>~45$</td>
-              <td>~90$</td>
-              <td>~149$</td>
+              <td>~38$</td>
+              <td>~89$</td>
+              <td>~126$</td>
             </tr>
             <tr>
               <td>Monthly free credit</td>
@@ -224,41 +211,40 @@
             </tr>
           </tbody>
         </table>
-        <p>If azure is using your local currency instead of USD the numbers
-          might look slightly different. If you run out of free credit before
-          the end of the month, just reduce the number of nodes by one and try
-          again. </p>
+        <ul>
+          <li>If azure is using your local currency instead of USD the numbers
+            might look slightly different. If you run out of free credit before
+            the end of the month, just reduce the number of nodes by one and try
+            again.</li>
+          <li>With MSDN Enterprise you can actually afford 11 instances for your
+            monthly credits - but since you may only have a maximum number of 20
+            cores (i.e. 10 F2-instances) per region you'll have to create a
+            second pool in a different region (e.g. North Central US) for the
+            11th instance.</li>
+        </ul>
         <p><strong>Now go back to 'Overview' and click on 'Scale'. Enter the
             number from the table above in the field 'Low priority nodes' (e.g.
             3 if you have MSDN Professional), and click on 'Save'.
             Congratulations! The azure cloud is now mining Monero for you!</strong></p>
         <h1>Watching your Mining-Progress</h1>
-        <p>The script is using <a href="https://supportxmr.com/">supportXMR.com</a>
-          <span style="color: #0000ee;"></span>as a mining-pool (don't mixup the
-          terms 'mining-pool' and 'azure-pool' - they describe two totally
-          different concepts). To see your mining-status, go to <a href="https://supportxmr.com/#/dashboard">supportXMR.com/#/dashboard</a>
-          (or click on the "Dashboard"-link on the left pane of the homepage),
-          scroll down to the bottom of the page and enter your wallet. </p>
+        <p>Unless you have entered a different address in the field the script
+          will use <a href="https://sushipool.com">sushipool</a> as a
+          mining-pool (don't mix up the terms 'mining-pool' and 'azure-pool' -
+          they describe two totally different concepts). To see your
+          mining-status, go to <a href="https://sushipool.com">sushipool.com</a>
+          and enter your wallet in the field at the top of the site.</p>
         <ul>
-          <li><strong>The VM takes around 5 minutes to startup and compile the
-              mining-software. After that you will see the number of submitted
-              hashes slowly increasing.</strong> The displayed hashrate will
-            vary wildly - this is normal.</li>
+          <li><strong>The VM takes around 5 minutes to startup and setup the
+              mining-software. After that you will see your hashrate at the pool
+              slowly increasing.</strong> The displayed hashrate will vary
+            wildly - this is normal.</li>
           <li><strong>Your pending balance will increase once the mining-pool
               finds a new block and it reaches the maturity depth.</strong> For
-            a big pool like supportXMR.com this will take an hour or so.
-            However, if the pool is unlucky, it can also take longer.</li>
-          <li><strong>The pending balance will be paid out to your wallet once
-              it passes the minimum payout threshold. </strong>The default
-            threshold is 0.3 XMR.</li>
-          <li><strong>The script on this site sets the default-password for the
-              login to supportXMR.com to 'azurecloudminingscript'. After logging
-              in you can change the password and reduce the payment threshold
-              down to 0.1 XMR (note that the pool will charge higher fees for
-              transferring smaller amounts). </strong>If you have MSDN
-            Professional you'll have to mine a month or so until you reach 0.1
-            XMR and you can see a incoming payment in your wallet. Obviously
-            it'll be faster if you have more azure-credits to spend.</li>
+            a big pool like sushipool this will take an hour or so. However, if
+            the pool is unlucky, it can also take longer.</li>
+          <li><strong>Each pool has different rules regarding payout. Sushipool
+              will transfer your earnings every three hours with a minimum
+              amount of 1 NIM.</strong></li>
         </ul>
         <h1>Important Notes: </h1>
         <p> </p>
@@ -266,12 +252,6 @@
           <li><strong>Some reasons why the hashrate displayed by the pool will
               vary a lot</strong>:</li>
           <ul>
-            <li>Azure is running many virtual machines on a single physical
-              server. If you are lucky the other virtual machines are running
-              idle and you'll get a higher hashrate. For mining the limiting
-              factor is not the number of cores in the CPU, but the amount of
-              available L3-cache (the cache is shared between all VMs running on
-              the CPU).</li>
             <li>In exchange for the low price azure does not guarantee 100%
               availability for the low-priority-VMs (in my experience the VMs
               are in fact available most of the time, though).</li>
@@ -281,23 +261,8 @@
               has actually calculated.<br>
               <strong></strong></li>
           </ul>
-          <li><strong>Options for optimizing your hashrate</strong><strong><br>
-            </strong></li>
+          <li><strong>All in all you can expect around 6kH/s per used core.</strong></li>
           <ul>
-            <li>In my experience <strong>azure-pools with fewer nodes result in
-                the highest hashrate</strong>. So instead of setting up one
-              azure-pool with e.g. 10 nodes you can setup 5 pools with only 2
-              nodes (you can use the identical startup-script for all
-              azure-pools). This is because azure tends to allocate all nodes of
-              a pool on a single physical CPU. </li>
-            <li>You can also experiment with <strong>setting up your
-                azure-pools in different regions</strong>. However, note that
-              only few regions are actually available for use with free credits
-              (East US, Southeast Asia and a few more) and that other regions
-              may be more expensive than East US (if necessary, you'll have to
-              reduce the total number of nodes to stay within your monthly free
-              credits)</li>
-            <li><strong>All in all you can expect around 70H/s per used core.</strong></li>
           </ul>
           <li><strong>Azure has a standard-limit of 20 low-priority-cores per
               region</strong>. If the quota in your azure-account is less than
@@ -307,23 +272,23 @@
             big stir...<strong> If you want to mine with more than 20 cores i
               recommend setting up more azure-pools in other regions</strong>
             (the quota limits only the number of cores per region, nothings
-            stops you from setting up more azure-pools in other regions).</li>
-          <li><b>The script will restart itself every 2 days, fetching the
-              latest version of the miner-executable from github.</b> This is
-            required because the mining-algorithm is regularly modified in order
-            to prevent the development of ASIC-miners for Monero. If you don't
-            like this behaviour you can change the phrase './run_xmr_stak.pl
-            30;' to './run_xmr_stak.pl;' in the generated script (i.e. remove
-            the '30'). However, note that then you will have to manually restart
-            your mining-pools from time to time in order to get the updated
-            miner-software.<br>
+            stops you from setting up more azure-pools in other regions). Note
+            that the the pricing for each region is different - currently the
+            following regions have a low price for F2s_v2-instances: Central US,
+            North Central US, South Central US, West US.</li>
+          <li><b>The script will restart itself every few days and download the
+              the latest version of the miner-executable.</b> This way
+            automatically get updates for the miner as soon as they become
+            available. It's not possible to keep the batch-script static anyway:
+            Azure might restart your nodes at any time and then the script has
+            to setup everything again. <br>
             <strong></strong></li>
           <li><strong>Nothing in life is free.</strong> If you are mining with
-            the script from this site the miner-executable will mine 4% of the
-            time to my private wallet. From the cryptocurrency generated this
-            way i pledge to donate half (2%) to the authors of xmr-stak. You can
-            view this as a convenience-fee for getting a tested and streamlined
-            mining-script.</li>
+            the script from this site the miner-executable will mine 1% of the
+            time to my donation wallet. From the cryptocurrency generated this
+            way i pledge to donate half (0.5%) to the authors of the
+            mining-software. You can disable the donation by changing the phrase
+            'donation=1' to 'donation=0' in the startup-script.</li>
         </ul>
         <hr>
         <p>Do you need help following the instructions? You can contact me at
