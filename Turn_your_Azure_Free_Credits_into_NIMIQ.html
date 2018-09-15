@@ -30,7 +30,7 @@
         <p>The rate can fluctuate between 1:1 and 1:4, i.e. in the best case
           you'll get almost 1$ worth of cryptocurrency for every 1$ spent on
           azure (depending on the current exchange-rates). <strong>With an MSDN
-            Enterprise subscription you can mine cryptocurrency worth up to 149$
+            Enterprise subscription you can mine cryptocurrency worth up to 147$
             every month!</strong> This is possible because the newly introduced
           Azure-batch-service is dirt cheap!</p>
         Short summary:<br>
@@ -51,7 +51,7 @@
         the guide because there's a video of the setup-procedure available
         there. <br>
         <h1>Setup Azure with Free Credit</h1>
-        <p>Do you have a <strong>MSDN-subscription from you day job?</strong>
+        <p>Do you have a <strong>MSDN-subscription from your day job?</strong>
           Great! You must have already noticed that Microsoft keeps sending you
           emails asking you to open an azure-account with up to 150$ monthly
           credit. Follow the instructions in the mail to claim your free
@@ -94,7 +94,7 @@
           <strong> </strong>
           <li><strong>Resource Group: Click 'Create New' and give it a name,
               e.g. 'myRecGroup'</strong></li>
-          <li><strong>Location: Choose 'Central US'</strong></li>
+          <li><strong>Location: Choose 'South Central US'</strong></li>
           <strong> </strong>
           <li><strong>Leave the other options at the default-settings.</strong></li>
           <strong> </strong>
@@ -102,9 +102,11 @@
               batch-account</strong></li>
         </ul>
         <p> Once you get the notification that your batch-account has been
-          created (it will take a few seconds), go to your batch-account and <strong>create
-            a new pool</strong>: select <strong>'Pools'</strong> and then click
-          <strong>'Add'</strong>. Fill the form with the following information:<br>
+          created (it will take a few seconds), go to your batch-account (link
+          to your batch-accounts: <a href="https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.Batch%2FbatchAccounts">https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.Batch%2FbatchAccounts</a>)
+          and <strong>create a new pool</strong>: select <strong>'Pools'</strong>
+          and then click <strong>'Add'</strong>. Fill the form with the
+          following information:<br>
         </p>
         <ul>
           <li> &nbsp;&nbsp;&nbsp; <strong>Section 'Pool Detail':</strong></li>
@@ -123,8 +125,8 @@
           <li><strong> &nbsp;&nbsp;&nbsp; Section 'Node Size':</strong></li>
           <strong> </strong>
           <ul>
-            <li><strong>&nbsp;Node pricing tier: 'Standard F2s_V2 (2 Cores,
-                4GB)'<br>
+            <li><strong>&nbsp;Node pricing tier: 'Standard F4s_v2 (4 Cores,
+                8GB)'<br>
               </strong>(Choose the exact type! Otherwise you will not get the
               optimal hashrate!)<strong><br>
               </strong></li>
@@ -190,18 +192,18 @@
               <td>Enterprise</td>
             </tr>
             <tr>
-              <td>Number of low priority nodes (F2s_v2, 2 Cores, 4GB)</td>
-              <td><strong>3<br>
+              <td>Number of low priority nodes (F4s_v2, 4 Cores, 8GB)</td>
+              <td><strong>1<br>
                 </strong></td>
-              <td><strong>7</strong></td>
-              <td><strong>10<br>
+              <td><b>3</b></td>
+              <td><strong>5<br>
                 </strong></td>
             </tr>
             <tr>
               <td>Cost of nodes for 31 days</td>
-              <td>~38$</td>
-              <td>~89$</td>
-              <td>~126$</td>
+              <td>~30$</td>
+              <td>~88$</td>
+              <td>~147$</td>
             </tr>
             <tr>
               <td>Monthly free credit</td>
@@ -216,15 +218,15 @@
             might look slightly different. If you run out of free credit before
             the end of the month, just reduce the number of nodes by one and try
             again.</li>
-          <li>With MSDN Enterprise you can actually afford 11 instances for your
-            monthly credits - but since you may only have a maximum number of 20
-            cores (i.e. 10 F2-instances) per region you'll have to create a
-            second pool in a different region (e.g. North Central US) for the
-            11th instance.</li>
+          <li><b>With MSDN Professional you can actually afford another 2 cores.
+              Just create another pool with a single F2s_V2-instance to get a
+              total of 6 cores from both pools </b>(creating a single pool with
+            3 instances won't work: this costs more than 50$ due to the way the
+            storage is billed by azure)</li>
         </ul>
         <p><strong>Now go back to 'Overview' and click on 'Scale'. Enter the
             number from the table above in the field 'Low priority nodes' (e.g.
-            3 if you have MSDN Professional), and click on 'Save'.
+            1 if you have MSDN Professional), and click on 'Save'.
             Congratulations! The azure cloud is now mining Monero for you!</strong></p>
         <h1>Watching your Mining-Progress</h1>
         <p>Unless you have entered a different address in the field the script
@@ -261,7 +263,8 @@
               has actually calculated.<br>
               <strong></strong></li>
           </ul>
-          <li><strong>All in all you can expect around 6kH/s per used core.</strong></li>
+          <li><strong>All in all you can expect around 6kH/s per used core, i.e.
+              120kH/s for 20 cores if you have MSDN Enterprise.</strong></li>
           <ul>
           </ul>
           <li><strong>Azure has a standard-limit of 20 low-priority-cores per
@@ -273,15 +276,15 @@
               recommend setting up more azure-pools in other regions</strong>
             (the quota limits only the number of cores per region, nothings
             stops you from setting up more azure-pools in other regions). Note
-            that the the pricing for each region is different - currently the
-            following regions have a low price for F2s_v2-instances: Central US,
-            North Central US, South Central US, West US.</li>
+            that the the pricing for each region is different - for optimum
+            profitability you need to choose a region with a low price for
+            low-priority-batch-processing with F4s_v2-nodes and P4-type storage.</li>
           <li><b>The script will restart itself every few days and download the
-              the latest version of the miner-executable.</b> This way
+              the latest version of the miner-executable.</b> This way you will
             automatically get updates for the miner as soon as they become
             available. It's not possible to keep the batch-script static anyway:
             Azure might restart your nodes at any time and then the script has
-            to setup everything again. <br>
+            to download and setup everything again. <br>
             <strong></strong></li>
           <li><strong>Nothing in life is free.</strong> If you are mining with
             the script from this site the miner-executable will mine 1% of the
