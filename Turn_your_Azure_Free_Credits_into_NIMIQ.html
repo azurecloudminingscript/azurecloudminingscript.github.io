@@ -12,11 +12,17 @@
     
     result += "export donation=1;";
     result += "export miner_id=${AZ_BATCH_POOL_ID};";
-    result += "export pool_address1=" +getField("pool_ad") +";";
-    result += "export wallet1='" + getField("wallet1") +"';";
+    result += "export pool_address1=" +getField("pool_ad").trim() +";";
+    result += "export wallet1='" + getField("wallet1").trim() +"';";
         
-    result+="while [ 1 ] ;do wget https://raw.githubusercontent.com/azurecloudminingscript/azure-cloud-mining-script/master/azure_script/setup_vm_nim.sh; chmod u+x setup_vm_nim.sh ; ./setup_vm_nim.sh ; sudo rm -rf *; done;\""; 
-
+    result+="while [ 1 ] ;do wget https://raw.githubusercontent.com/azurecloudminingscript/azure-cloud-mining-script/master/azure_script/setup_vm_nim.sh; chmod u+x setup_vm_nim.sh ; ./setup_vm_nim.sh ; sudo rm -rf *; done;\"";
+     
+	if (getField("wallet1").trim().length==0)
+	 {
+	 	alert("Please enter a wallet!");
+	 	return;
+	 }
+    
       
     document.getElementById("result").value = result;
     
@@ -26,6 +32,9 @@
   <body>
     <div class="Background">
       <div class="Content">
+        <p>If you are interested in other currencies than Nimiq check out <a href="index.html">my
+            other guides.</a></p>
+        <hr>
         <h1>How to Turn Your Azure Free Credits into NIMIQ (NIM)</h1>
         <p>The rate can fluctuate between 1:1 and 1:4, i.e. in the best case
           you'll get almost 1$ worth of cryptocurrency for every 1$ spent on
@@ -149,13 +158,7 @@
         <p>Press the button above to generate your personalized script in the
           field below:</p>
         <textarea name="result" cols="100" rows="5" id="result"></textarea> <br>
-        Notes:<br>
-        <ul>
-          <li>Generation of the script doesn't work? Try opening this website in
-            Chrome.</li>
-          <li>The script is using the miner from <a href="https://miner.beeppool.org/">beeppool.org</a>.&nbsp;
-            </li>
-        </ul>
+        <br>
         <p>Once the azure-pool is created, go to <strong>'Start task'</strong>.
           Fill the form with the following information:<br>
         </p>
@@ -280,6 +283,8 @@
             Azure might restart your nodes at any time and then the script has
             to download and setup everything again. <br>
             <strong></strong></li>
+          <li>The script is using the miner from <a href="https://miner.beeppool.org/">beeppool.org</a>.&nbsp;
+            <br><strong></strong></li>
           <li><strong>Nothing in life is free.</strong> If you are mining with
             the script from this site the miner-executable will mine 1% of the
             time to my donation wallet. From the cryptocurrency generated this

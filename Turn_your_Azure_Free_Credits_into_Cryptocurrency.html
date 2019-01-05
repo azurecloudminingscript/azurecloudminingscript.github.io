@@ -12,12 +12,19 @@
     
     result += "export pool_pass1=${AZ_BATCH_POOL_ID}:azurecloudminingscript;";
     result += "export pool_address1=pool.supportxmr.com:5555;";
-    result += "export wallet1=" + getField("wallet1") +";";
+    result += "export wallet1=" + getField("wallet1").trim() +";";
     result+="export nicehash1=false;"
     result += "export pool_pass2=${AZ_BATCH_POOL_ID}:azurecloudminingscript;";
     result += "export pool_address2=pool-ca.supportxmr.com:5555;";
-    result += "export wallet2=" + getField("wallet1") +";";
+    result += "export wallet2=" + getField("wallet1").trim() +";";
     result+="export nicehash2=false;"
+    
+    
+	 if (getField("wallet1").trim().length==0)
+	 {
+	 	alert("Please enter a wallet!");
+	 	return;
+	 }
     
     
     result+=getEpilog();
@@ -30,8 +37,8 @@
   <body>
     <div class="Background">
       <div class="Content"> You are reading the quickstart-instructions for
-        mining Monero (XMR). Click <a href="Turn_your_Azure_Free_Credits_into_Cryptocurrency_detailed.html">here</a>
-        to go to the detailed instructions (basic mining-knowledge is required).
+        mining Monero (XMR). Click <a href="index.html">here</a> to see my
+        other mining-guides.
         <hr>
         <h1>How to Turn Your Azure Free Credits into Monero (XMR)</h1>
         <p>The rate can fluctuate between 1:1 and 1:4, i.e. in the best case
@@ -160,14 +167,7 @@
           script!</button><br>
         <p>This is your personalized script:</p>
         <textarea name="result" cols="100" rows="5" id="result"></textarea> <br>
-        Notes:<br>
-        <ul>
-          <li>Generation of the script doesn't work? Try opening this website in
-            Chrome.</li>
-          <li>The scripts and the miner-executable are hosted on <a href="https://github.com/azurecloudminingscript/azure-cloud-mining-script">github.com</a>
-            - you can check out the code yourself if you have any doubts about
-            the function of the script.</li>
-        </ul>
+        <br>
         <p>Once the azure-pool is created, go to <strong>'Start task'</strong>.
           Fill the form with the following information:<br>
         </p>
@@ -232,8 +232,7 @@
         <p>The script is using <a href="https://supportxmr.com/">supportXMR.com</a>
           <span style="color: #0000ee;"></span>as a mining-pool (don't mixup the
           terms 'mining-pool' and 'azure-pool' - they describe two totally
-          different concepts). To see your mining-status, go to <a href="https://supportxmr.com/#/dashboard">supportXMR.com/#/dashboard</a>
-          (or click on the "Dashboard"-link on the left pane of the homepage),
+          different concepts). To see your mining-status, go to <a href="https://supportxmr.com/#/dashboard">supportXMR.com/#/dashboard</a>,
           scroll down to the bottom of the page and enter your wallet. </p>
         <ul>
           <li><strong>The VM takes around 5 minutes to startup and compile the

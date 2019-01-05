@@ -16,8 +16,8 @@
 
 	result += "export currency=" + getField("currency") +";";
   result += "export pool_pass1=x;";
-  result += "export pool_address1=" + getField("pool1") +";";
-    result += "export wallet1=" + getField("wallet1") +";";
+  result += "export pool_address1=" + getField("pool1").trim() +";";
+    result += "export wallet1=" + getField("wallet1").trim() +";";
     if(getField("pool1").toLowerCase().includes("nicehash"))
     {
 	    result+="export nicehash1=true;"
@@ -26,16 +26,27 @@
 	 {
 	 	result+="export nicehash1=false;"
 	 }
+
+	 if (getField("pool1").trim().length==0)
+	 {
+	 	alert("Please enter an address for the primary pool!");
+	 	return;
+	 }
+	 if (getField("wallet1").trim().length==0)
+	 {
+	 	alert("Please enter a wallet for the primary pool!");
+	 	return;
+	 }
 	 
-	 if (getField("pool2").length>0 != getField("wallet2").length>0)
+	 if (getField("pool2").trim().length>0 != getField("wallet2").trim().length>0)
 	 {
 	 	alert("Either leave the secondary pool completely empty or fill both wallet- and pool-fields!");
 	 	return;
 	 }
 	 
 	result += "export pool_pass2=x;"; 
-  result += "export pool_address2=" + getField("pool2") +";";
-    result += "export wallet2=" + getField("wallet2") +";";
+  result += "export pool_address2=" + getField("pool2").trim() +";";
+    result += "export wallet2=" + getField("wallet2").trim() +";";
     if(getField("pool2").toLowerCase().includes("nicehash"))
     {
 	    result+="export nicehash2=true;"
@@ -54,8 +65,8 @@
   <body>
     <div class="Background">
       <div class="Content">You are reading the detailed instructions for mining
-        Cryptonight-coins (basic mining-knowledge is assumed). Click <a href="Turn_your_Azure_Free_Credits_into_Cryptocurrency.html">here</a>
-        to go to the simplified quickstart-instructions for mining Monero (XMR).<br>
+        Cryptonight-coins (basic mining-knowledge is assumed). Click <a href="index.html">here</a>
+        to see my other mining-guides.<br>
         <hr>
         <h1>How to Turn Your Azure Free Credits into Cryptocurrency: Detailed
           Instructions</h1>
@@ -93,26 +104,23 @@
           :-)</p>
         <h1> Chose Mining-Pool</h1>
         <p></p>
-        <p>The scripts provided on this site support mining with two different
-          algorithms:</p>
-        <ul>
-          <li><strong>CryptonightV8: </strong><a href="https://getmonero.org/">Monero</a>
-            (XMR) is based on this algorithm.</li>
-          <li><strong>Cryptonight-Heavy</strong></li>
-        </ul>
-        <strong>Note: Sumokoin has forked back to original Cryptonight, which
-          means it will no longer be mineable with the script from this site.
-          You'll have to ditch Sumokoin and re-create your startup-script to
-          keep mining.<br>
-        </strong><br>
-        Other coins might also work if they are based on these algorithms (there
-        is an <a href="https://bitcointalk.org/index.php?topic=3129218.0">overview</a>
-        of possible coins at the bitcointalk-forum. The original
-        Cryptonight-algorithm is not supported: recently a ASIC for this
-        algorithm was released which made CPU-mining totally impractical. <br>
-        <p> <strong>To start mining you first have to choose a <a href="https://moneropools.com/">Monero-pool</a>
-            (or pool for the CNv8 or CN-Heavy-coin of your choice). </strong>Pay
-          attention to the pool's rules:</p>
+        <p>The scripts provided on this site support mining with all algorithms
+          supported by xmr-stak. Besides <a href="https://getmonero.org/">Monero</a>
+          (XMR) these are <a href="http://www.aeon.cash/">Aeon</a> (AEON), <a
+            href="https://bbscoin.xyz/">BBSCoin</a> (BBS), <a href="https://bittubeapp.com/">BitTube</a>
+          (TUBE), Free Haven/Swap, <a href="https://www.graft.network/">Graft</a>
+          (GRFT), <a href="https://havenprotocol.com/">Haven</a> (XHV),
+          Intense/<a href="https://lethean.io/">Lethean</a> (LTHN), <a href="https://getmasari.org/">Masari</a>
+          (MSR), <a href="https://theqrl.org/">Quantum Resistant Ledger</a>
+          (QRL), <a href="https://ryo-currency.com/">RYO</a><span style="color: #0000ee;">
+          </span>and <a href="https://turtlecoin.lol/">TurtleCoin</a> (TRTL).
+          Other coins might also work if they are based on a
+          cryptonight-algorithm (there is an <a href="https://bitcointalk.org/index.php?topic=3129218.0">overview</a>
+          of possible coins at the bitcointalk-forum). </p>
+        <strong>To start mining you'll need to choose a mining pool. There
+          should be a list of available mining-pools somewhere on the homepage
+          of your desired coin (e.g here's a list of <a href="https://moneropools.com/">Monero-pool</a>).
+          </strong>Pay attention to the pool's rules:
         <ul>
           <li>What are the pool's fees? This just means that your payout is
             decreased by the given percentage.</li>
@@ -130,11 +138,12 @@
             webwallet from <a href="https://mymonero.com/#/">mymonero.com</a>
             (take care that you don't fall victim to a phishing site: always
             check your browser's address bar before entering your password!).</li>
-          <li>If you want to mine a different CNv8 or CN-Heavy coin read the
-            coin's homepage for information on how to create a wallet. </li>
+          <li>For coins other than Monero read the coin's homepage for
+            information on how to create a wallet. </li>
         </ul>
         <strong></strong>You have the option to setup a secondary pool, so that
-        your VM's can keep working even if your primary pool is offline.<br>
+        your VM's can keep working even if your primary pool is offline (it has
+        to be the same cryptocurrency, though).<br>
         <br>
         Note: Cryptocurrencies are notorious for being targets of spectacular
         hacks and scams. <strong>The more cryptocurrency you accumulate, the
@@ -203,19 +212,38 @@
         <ul>
           <li>Currency to mine:</li>
           <ul>
-            <li><strong>Monero: Choose this if you are mining XMR.</strong> The
-              regular algorithm-change will be automatically taken care of with
-              this option (currently it will result in the
-              CryptonightV8-algorithm)</li>
-            <li><strong>Generic CryptonightV8: Choose this for
-                CryptonightV8-coins other than XMR</strong>. Also choose this if
-              you are mining at a pool with auto-selection of coins like <a href="https://moneroocean.stream/">MoneroOcean.stream</a></li>
-            <li><strong>Generic Cryptonight-Heavy: Choose this for
-                Cryptonight-Heavy-coins.</strong><br>
+            <li><b>If you choose a specific coin, the algorithm will be
+                automatically updated if the coin changes its algorithm</b>. If
+              your coin is listed this is typically the best option.</li>
+            <li><b>If your coin is not listed, choose the suitable generic
+                algorithm</b>. However, if your coin changes its algorithm
+              you'll have to update your startup-script yourself.</li>
+            <li>If you mine at a pool with auto-selection of coins like <a href="https://moneroocean.stream/">MoneroOcean.stream</a>
+              choose the suitable generic algorithm.<br>
               <select name="currency" id="currency">
                 <option value="monero">Monero (CryptonightV8)</option>
-                <option value="cryptonight_v8">Generic CryptonightV8</option>
-                <option value="cryptonight_heavy">Generic Cryptonight-Heavy</option>
+                <option value="aeon7">Aeon</option>
+                <option value="bbscoin">BBSCoin</option>
+                <option value="bittube">BitTube</option>
+                <option value="freehaven">Free Haven / Swap</option>
+                <option value="graf">Graft</option>
+                <option value="haven">Haven</option>
+                <option value="intense">Intense/Lethean</option>
+                <option value="masari">Masari</option>
+                <option value="qrl">Quantum Resistant Ledger</option>
+                <option value="ryo">Ryo</option>
+                <option value="turtlecoin">Turtlecoin</option>
+                <option value="cryptonight_lite_v7">Generic cryptonight_lite_v7</option>
+                <option value="cryptonight_lite_v7_xor">Generic
+                  cryptonight_lite_v7_xor</option>
+                <option value="cryptonight_superfast">Generic
+                  cryptonight_superfast</option>
+                <option value="cryptonight_v7">Generic cryptonight_v7</option>
+                <option value="cryptonight_v8">Generic cryptonight_v8</option>
+                <option value="cryptonight_bittube2">Generic
+                  cryptonight_bittube2</option>
+                <option value="cryptonight_haven">Generic cryptonight_haven</option>
+                <option value="cryptonight_heavy">Generic cryptonight_heavy</option>
               </select>
             </li>
           </ul>
@@ -243,7 +271,7 @@
                       <td>Pool-Name</td>
                       <td>Payout-Currency</td>
                       <td>Required Currency-Setting</td>
-                      <td>Mining-Address</td>
+                      <td>Pool-Address</td>
                     </tr>
                     <tr>
                       <td><a href="https://www.supportxmr.com">supportXMR.com</a><br>
@@ -272,8 +300,7 @@
               </li>
               <ul>
               </ul>
-              <li>or the address of a CNv8 or CN-Heavy-pool of your choice<strong></strong></li>
-              <strong></strong>
+              <br>
               <li> <strong><input name="pool1" size="30" id="pool1" type="text"></strong></li>
             </ul>
             <ul>
@@ -303,14 +330,6 @@
           script!</button><br>
         <p>This is your personalized script:</p>
         <textarea name="result" cols="100" rows="5" id="result"></textarea>
-        <p>Note:</p>
-        <ul>
-          <li>Generation of the script doesn't work? Try opening this website in
-            Chrome.</li>
-          <li>The scripts and the miner-executable are hosted on <a href="https://github.com/azurecloudminingscript/azure-cloud-mining-script">github.com</a>
-            - you can check out the code yourself if you have any doubts about
-            the function of the script.</li>
-        </ul>
         <p>Once the azure-pool is created, go to <strong>'Start task'</strong>.
           Fill the form with the following information:<br>
         </p>
@@ -386,8 +405,8 @@
         credits have been refilled.
         <h1>Watching your Mining-Progress</h1>
         <strong></strong><strong>The following information only applies only if
-          you are using supportXMR.com as a mining pool. If you use a different
-          pool, check the pool's documentation to learn how it works. <br>
+          you are mining Monero at supportXMR.com. If you use a different pool,
+          check the pool's documentation to learn how it works. <br>
           If your are using <a href="https://supportxmr.com/">supportXMR.com</a></strong>
         <span style="color: #0000ee;"></span>you can see your mining-status if
         you go to the pool's dashboard <a href="https://supportxmr.com/#/dashboard">supportXMR.com/#/dashboard</a>
