@@ -18,7 +18,7 @@
   result += "export pool_pass1=x;";
   result += "export pool_address1=" + getField("pool1").trim() +";";
     result += "export wallet1=" + getField("wallet1").trim() +";";
-    if(getField("pool1").toLowerCase().includes("nicehash"))
+    if(getField("pool1").toLowerCase().indexOf("nicehash")!=-1)
     {
 	    result+="export nicehash1=true;"
 	 }
@@ -47,7 +47,7 @@
 	result += "export pool_pass2=x;"; 
   result += "export pool_address2=" + getField("pool2").trim() +";";
     result += "export wallet2=" + getField("wallet2").trim() +";";
-    if(getField("pool2").toLowerCase().includes("nicehash"))
+    if(getField("pool2").toLowerCase().indexOf("nicehash")!=-1)
     {
 	    result+="export nicehash2=true;"
 	 }
@@ -115,8 +115,8 @@
           (QRL), <a href="https://ryo-currency.com/">RYO</a><span style="color: #0000ee;">
           </span>and <a href="https://turtlecoin.lol/">TurtleCoin</a> (TRTL).
           Other coins might also work if they are based on a
-          cryptonight-algorithm (there is an <a href="https://bitcointalk.org/index.php?topic=3129218.0">overview</a>
-          of possible coins at the bitcointalk-forum). </p>
+          cryptonight-algorithm (you can use <a href="https://www.cryptunit.com/">cryptunit</a>
+          to calculate your expected profits). </p>
         <strong>To start mining you'll need to choose a mining pool. There
           should be a list of available mining-pools somewhere on the homepage
           of your desired coin (e.g here's a list of <a href="https://moneropools.com/">Monero-pool</a>).
@@ -263,32 +263,32 @@
                 <table style="width: 100%" border="1">
                   <tbody>
                     <tr>
+                      <td>Pool-Address</td>
                       <td>Pool-Name</td>
                       <td>Payout-Currency</td>
                       <td>Required Currency-Setting</td>
-                      <td>Pool-Address</td>
                     </tr>
                     <tr>
+                      <td><strong>pool.supportxmr.com:5555</strong></td>
                       <td><a href="https://www.supportxmr.com">supportXMR.com</a><br>
                         (Monero-pool)<span style="color: #0000ee;"><br>
                         </span></td>
                       <td>XMR</td>
                       <td>Monero (CryptonightV8)</td>
-                      <td><strong>pool.supportxmr.com:5555</strong></td>
                     </tr>
                     <tr>
+                      <td><strong>gulf.moneroocean.stream:10001</strong></td>
                       <td><a href="https://moneroocean.stream">MoneroOcean</a><br>
                         (pool with auto-selection of CNv8-coins)</td>
                       <td>XMR</td>
                       <td>Generic CryptonightV8</td>
-                      <td><strong>gulf.moneroocean.stream:10001</strong></td>
                     </tr>
                     <tr>
+                      <td><strong>pool.loki.hashvault.pro:3333</strong></td>
                       <td><a href="https://loki.hashvault.pro">Loki Hash Vault</a><br>
                         (LOKI-pool)</td>
                       <td>LOKI</td>
                       <td>Generic Cryptonight-Heavy</td>
-                      <td><strong>pool.loki.hashvault.pro:3333</strong></td>
                     </tr>
                   </tbody>
                 </table>
