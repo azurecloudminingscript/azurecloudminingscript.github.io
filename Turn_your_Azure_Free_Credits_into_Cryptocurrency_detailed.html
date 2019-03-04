@@ -62,7 +62,7 @@
   
 }</script>
   </head>
-  <body>
+  <body onload="autoFillForm()">
     <div class="Background">
       <div class="Content">You are reading the detailed instructions for mining
         Cryptonight-coins (basic mining-knowledge is assumed). Click <a href="index.html">here</a>
@@ -213,15 +213,16 @@
             <li><b>If your coin is not listed, choose the suitable generic
                 algorithm</b>. However, if your coin changes its algorithm
               you'll have to update your startup-script yourself.</li>
-            <li>If you mine at a pool with auto-selection of coins like <a href="https://moneroocean.stream/">MoneroOcean.stream</a>
+            <li>If you mine at a pool with auto-selection of coins
+              like <a href="https://moneroocean.stream/">MoneroOcean.stream</a>
               choose the suitable generic algorithm.<br>
               <select name="currency" id="currency">
-                <option value="monero">Monero (CryptonightV8)</option>
+                <option value="monero">Monero</option>
                 <option value="aeon7">Aeon</option>
                 <option value="bbscoin">BBSCoin</option>
                 <option value="bittube">BitTube</option>
                 <option value="freehaven">Free Haven / Swap</option>
-                <option value="graf">Graft</option>
+                <option value="graft">Graft</option>
                 <option value="haven">Haven</option>
                 <option value="intense">Intense/Lethean</option>
                 <option value="masari">Masari</option>
@@ -284,11 +285,13 @@
                       <td>Generic CryptonightV8</td>
                     </tr>
                     <tr>
-                      <td><strong>pool.loki.hashvault.pro:3333</strong></td>
-                      <td><a href="https://loki.hashvault.pro">Loki Hash Vault</a><br>
-                        (LOKI-pool)</td>
-                      <td>LOKI</td>
-                      <td>Generic Cryptonight-Heavy</td>
+                      <td><strong>pool.XXX.hashvault.pro:80<br>
+                        </strong>(Where XXX can be Graft, Aeon, Haven, ...)<strong><br>
+                        </strong></td>
+                      <td><a href="https://hashvault.pro/">hashvault.pro</a><br>
+                        (Follow link to see the supported currencies.)</td>
+                      <td>different cryptonote-coins</td>
+                      <td>Graft, Aeon, Haven, ...</td>
                     </tr>
                   </tbody>
                 </table>
