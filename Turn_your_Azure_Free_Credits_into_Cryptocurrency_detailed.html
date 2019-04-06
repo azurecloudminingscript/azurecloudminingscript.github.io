@@ -15,7 +15,7 @@
   var result= getProlog();
 
 	result += "export currency=" + getField("currency") +";";
-  result += "export pool_pass1=x;";
+  result += "export pool_pass1="+getField("pass1") +";";
   result += "export pool_address1=" + getField("pool1").trim() +";";
     result += "export wallet1=" + getField("wallet1").trim() +";";
     if(getField("pool1").toLowerCase().indexOf("nicehash")!=-1)
@@ -43,9 +43,8 @@
 	 	alert("Either leave the secondary pool completely empty or fill both wallet- and pool-fields!");
 	 	return;
 	 }
-	 
-	result += "export pool_pass2=x;"; 
-  result += "export pool_address2=" + getField("pool2").trim() +";";
+	result += "export pool_pass2="+getField("pass2") +";";
+  	result += "export pool_address2=" + getField("pool2").trim() +";";
     result += "export wallet2=" + getField("wallet2").trim() +";";
     if(getField("pool2").toLowerCase().indexOf("nicehash")!=-1)
     {
@@ -312,6 +311,14 @@
             <ul>
             </ul>
           </ul>
+          <ul>
+            <li>Password for primary mining-pool:</li>
+            <ul>
+              <li>Read your pool's documentation to find out how to use this
+                field. In most cases you can just leave it at 'x'</li>
+              <li><input name="pass1" size="30" id="pass1" value="x" type="text"></li>
+            </ul>
+          </ul>
           <li>Secondary mining-pool. This pool will only be used if the primary
             mining-pool is offline. Leave the fields empty if you don't want to
             use a secondary mining-pool.</li>
@@ -323,6 +330,10 @@
             <li>Address of secondary mining-pool:</li>
             <ul>
               <li>&nbsp;<input name="pool2" size="30" id="pool2" type="text"></li>
+            </ul>
+            <li>Password for secondary mining-pool:</li>
+            <ul>
+              <li>&nbsp;<input name="pass2" size="30" id="pass2" value="x" type="text"></li>
             </ul>
           </ul>
         </ul>
@@ -404,8 +415,8 @@
         can simply restart your azure-pool in the next month once your free
         credits have been refilled.
         <h1>Watching your Mining-Progress</h1>
-        <strong></strong><strong>The following information only applies only if
-          you are mining Monero at supportXMR.com. If you use a different pool,
+        <strong></strong><strong>The following information only applies if you
+          are mining Monero at supportXMR.com. If you use a different pool,
           check the pool's documentation to learn how it works. <br>
           If your are using <a href="https://supportxmr.com/">supportXMR.com</a></strong>
         <span style="color: #0000ee;"></span>you can see your mining-status if
