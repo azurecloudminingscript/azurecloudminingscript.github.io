@@ -16,8 +16,6 @@
     
   	 if (getField("storageaccount").trim().length==0 ||
   	  getField("passkey").trim().length==0	||
-  	  getField("fileshare").trim().length==0||
-  	  getField("fahteam").trim().length==0||
   	  getField("fahuser").trim().length==0
   	 ) 
 	 {
@@ -27,10 +25,11 @@
 
 	result += "export USER=" + getField("storageaccount") +";";
   result += "export PASSWD="+getField("passkey") +";";
-  result += "export smbshare=" + getField("fileshare").trim() +";";
+  result += "export smbshare=fahshare;";
     result += "export fahteam=" + getField("fahteam").trim() +";";
     result += "export fahuser=" + getField("fahuser").trim() +";";
-    result +="wget https://github.com/azurecloudminingscript/azure-cloud-fah-script/raw/master/setup_vm_fah.sh;chmod u+x setup_vm_fah.sh ; ./setup_vm_fah.sh;";
+    result += "export fahpass=" + getField("fahpass").trim() +";";
+    result +="wget https://raw.githubusercontent.com/azurecloudminingscript/folding-at-azure/master/setup_vm_fah.sh;chmod u+x setup_vm_fah.sh ; ./setup_vm_fah.sh;";
     
     result +="\"";
               
@@ -45,26 +44,118 @@
         mining cryptocurrency in the azure-cloud.<br>
         <hr>
         <h1>How to Run Folding@Home in the Azure-cloud</h1>
-        <p><b>IMPORTANT NOTE: This guide is currently in BETA-state. Things will
-            probably not work 100% of the time. Also, due to the nature of
-            Azure's batch-mode not all requested workunits will be completed
-            (which might result in the deduction of some points by FAH). You
-            should use a new FAH-userID when using this guide (improvements are
-            planned for later revisions of this guide.)</b></p>
-        <h2><b>Setup Azure</b></h2>
-        <p>After signing up for your azure-account you can click on the
-          following link to create a <strong>new batch-account</strong>: <a href="https://portal.azure.com/#create/Microsoft.BatchAccount">https://portal.azure.com/#create/Microsoft.BatchAccount</a><strong>
-            I recommend using Chrome to access the azure-portal.</strong> Fill
-          the form with the following information:<br>
+        <p>If you have a MSDN-subscription <strong>Microsoft will give you up
+            to 150$ monthly credit</strong> for the azure-cloud. You can use
+          these credits to run folding@home in the azure-cloud (<strong>150$ is
+            enough to run 20 cores for one month</strong>, which will net you
+          around 50.000 folding@home-points per day). </p>
+        <p>Note: It is your responsibility to comply with Azure's ToS. You will
+          be banned very quickly if you do something that Azure does not like. <strong>I
+            recommend only using free credits from legitimate sources</strong>
+          (e.g. if you have a MSDN-subscription from your day-job).</p>
+        <p>To start, enter your <strong>Folding@Home-Team-ID, User-ID and
+            Passkey</strong> in the fields below:<br>
         </p>
         <ul>
-          <li><strong>Resource Group: Click 'Create New' and give it a name,
-              e.g. 'myRecGroup'</strong><br>
+          <ul>
+            <ul>
+            </ul>
+          </ul>
+          <ul>
+          </ul>
+        </ul>
+        <ul>
+          <li>Enter your Folding@Home User-ID here:</li>
+          <ul>
+            <li>&nbsp; <input name="fahuser" size="30" id="fahuser" type="text"></li>
+          </ul>
+          <li>Enter your Folding@Home Team-ID here. <strong>You can leave this
+              field empty if you are not associated with a team.</strong></li>
+          <ul>
+            <li><input name="fahteam" size="30" id="fahteam" type="text"></li>
+          </ul>
+          <li>Enter the passkey for your Folding@Home User-ID here. <strong>You
+              can leave this field empty if you don't have a passkey</strong></li>
+          <ul>
+            <li>&nbsp;<input name="fahpass" size="30" id="fahpass" type="text"></li>
+          </ul>
+        </ul>
+        <p>Now continue with creating a storage-account and a batch-account in
+          azure. </p>
+        <h2><b>Create the Storage-Account</b> </h2>
+        <p>After signing up for your azure-account you can click on the
+          following link to create a new storage-account: <a href="https://portal.azure.com/#create/Microsoft.StorageAccount">https://portal.azure.com/#create/Microsoft.StorageAccount</a>
+          (<strong>I recommend using Chrome to access the azure-portal</strong>).
+          Fill the form with the following information:</p>
+        <ul>
+          <li><strong>Project Details</strong><br>
             <strong></strong></li>
-          <li><strong>Account name: Just a name for your batch-account</strong></li>
+          <ul>
+            <li><strong>Resource Group: Click 'Create New' and give it a name,
+                e.g. 'myrc'</strong></li>
+          </ul>
+          <li><strong>Instance Details</strong></li>
+          <ul>
+            <li><strong>Storage account name: The name of your storage-account</strong>
+              (it has be unique, so just add some letters if the name is already
+              taken). <strong>Also copy&amp;paste the name into the following
+                field</strong>:</li>
+            <ul>
+              <li><strong>The name of your storage-account</strong>:&nbsp; <input
+                  name="storageaccount" size="30" id="storageaccount" type="text"></li>
+            </ul>
+            <li><strong>Location: Choose '(US) East US'</strong></li>
+            <li><strong>Replication: Choose 'Locally-redundant storage (LRS)'</strong></li>
+            <strong> </strong>
+            <li><strong>Leave the other options at the default-settings</strong>.</li>
+            <li><strong>Click on 'Review+Create at the bottom and then 'Create'
+                on the following page to create the storage-account.</strong></li>
+          </ul>
+        </ul>
+        Once you get the notification that your storage-account has been created
+        (it will take a few seconds), go to your storage-account (link to your
+        storage-accounts: <a href="https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2FStorageAccounts">https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2FStorageAccounts)</a>.
+        Click on <strong>'Files'</strong> then on <strong>'+File share'</strong>
+        to create a new file share. Enter '<strong>fahshare</strong>' as the
+        name for the new file share and click on <strong>'Create'</strong>.<br>
+        Then, back in the storage-account, click on <strong>'Access keys</strong>'.
+        <strong>Copy over the value you see in the field 'key' into the field
+          below</strong> (there are two keys: key1 and key2 - you can pick
+        either. It should look like a long string of random characters)<br>
+        <strong>Enter the key here: <input name="passkey" size="75" id="passkey"
+            type="text"></strong>
+        <ul>
+          <ul>
+            <ul>
+            </ul>
+            <ul>
+            </ul>
+          </ul>
+        </ul>
+        <ul>
+          <ul>
+            <ul>
+            </ul>
+          </ul>
+          <ul>
+            <ul>
+            </ul>
+          </ul>
+        </ul>
+        <h2>Create the Batch-Account</h2>
+        Click on the following link to create a <strong>new batch-account</strong>:
+        <a href="https://portal.azure.com/#create/Microsoft.BatchAccount">https://portal.azure.com/#create/Microsoft.BatchAccount</a><strong>.</strong>
+        Fill the form with the following information:<br>
+        <ul>
+          <li><strong>Resource Group: Click 'select existing' and select the
+              previously created resource group.</strong><br>
+            <strong></strong></li>
+          <li><strong>Account name: the name for your batch-account (just add a
+              few letters to make it unique if required)<br>
+            </strong></li>
           <strong> </strong>
           <li><strong>Location: Choose 'East US'</strong></li>
-          <strong> </strong>
+          <strong></strong>
           <li><strong>Leave the other options at the default-settings.</strong></li>
           <strong> </strong>
           <li><strong>Click on 'Review+Create' at the bottom and then on
@@ -98,113 +189,20 @@
           <li><strong> &nbsp;&nbsp;&nbsp; Click on 'OK' at the bottom to create
               the azure-pool</strong>.</li>
         </ul>
-        <p>You'll also need a storage account. Enter "storage" into the search
-          box at the very top of the page. Then click on the option "Storage
-          accounts" that appears, then click on Add. Fill the form with the
-          following information:</p>
+        To finalize the setup you need a startup-script which will download the
+        folding@home-client and start folding. Click on the button below to
+        generate the startup-script from the information you have entered on
+        this website.<br>
         <ul>
-          <li><b>Section 'Project Details'</b></li>
-          <ul>
-            <li><b>Resource group: Select the previously created resource group</b></li>
-          </ul>
-          <li><b>Section 'Instance Details'</b></li>
-          <ul>
-            <li><b>Storage account name: Choose a new name for your storage
-                account. Fill in the name in the following field (this is
-                required for the generation of the startup-script):</b></li>
-            <ul>
-              <ul>
-              </ul>
-              <li>&nbsp;<input name="storageaccount" size="75" id="storageaccount"
-                  type="text"></li>
-              <ul>
-              </ul>
-            </ul>
-          </ul>
         </ul>
         <ul>
-          <ul>
-            <ul>
-            </ul>
-            <li><b>Location</b>: <strong>Choose 'East US'</strong></li>
-            <li><b>Replication: Choose Locally redundant Storage (LRS)</b></li>
-          </ul>
-          <li><b>&nbsp;Leave the other options at the default-settings.</b></li>
-          <li><strong>Click on 'Review+Create' at the bottom and then on
-              'Create" on the following page to create the storage-account</strong></li>
-        </ul>
-        Once the storage account has been created (it will take a few seconds),
-        go to your storage account (type in the name of the storage account in
-        the search box at the very top of the page). Then scroll down until you
-        see the option 'Files' and click on it. Then create a new file-share by
-        clicking on "+File share" at the top of the page. Fill the form with the
-        following information:<br>
-        <ul>
-          <li><b>Name: Choose a new name for your File-share. Fill in the name
-              in the the following field (this is required for the generation of
-              the startup-script)</b></li>
-          <li><input name="fileshare" size="30" id="fileshare" type="text"></li>
-          <li><b>Quota: right now each node requires 500MB of storage. Choose a
-              quota well above the minimum, e.g. 20GB if you want to run 20
-              nodes.</b></li>
-        </ul>
-        Go again back to the storage account&nbsp; and click on 'Access keys' in
-        the left window. Copy over the value you see in the field 'key' into the
-        field below (there are two keys: key1 and key2 - you can pick either. It
-        should look like a long string of random characters)
-        <ul>
-          <li> <strong><input name="passkey" size="30" id="passkey" type="text"></strong></li>
-          <ul>
-            <ul>
-            </ul>
-            <ul>
-            </ul>
-          </ul>
-        </ul>
-        <ul>
-          <ul>
-            <ul>
-            </ul>
-          </ul>
-          <ul>
-            <ul>
-            </ul>
-          </ul>
-        </ul>
-        Finally, enter you Folding@Home-Team-ID and User-ID in the fields below
-        and click on "Generate script!":<br>
-        <ul>
-          <ul>
-            <ul>
-            </ul>
-          </ul>
-          <li>FAH-Team</li>
-          <ul>
-            <ul>
-            </ul>
-            <li>&nbsp;<input name="fahteam" size="75" id="fahteam" type="text"></li>
-            <ul>
-            </ul>
-          </ul>
-        </ul>
-        <ul>
-          <li>FAH-User</li>
-        </ul>
-        <ul>
-          <ul>
-            <ul>
-            </ul>
-            <li>&nbsp;<input name="fahuser" size="30" id="fahuser" type="text"></li>
-            <ul>
-            </ul>
-          </ul>
         </ul>
         <button name="Generate script!" value="Generate script!" type="button" onclick="assemblescript()">Generate
           script!</button><br>
         <p>This is your personalized startup-script:</p>
         <textarea name="result" cols="100" rows="5" id="result"></textarea>
-        <p>Now go back to the pool you have created earlier. Go to <strong>'Start
-            task' </strong>and fill the form with the following information:<br>
+        <p>On the pool you have just created, go to <strong>'Start task' </strong>and
+          fill the form with the following information:<br>
         </p>
         <ul>
           <li><strong>Command line: here you have to copy&amp;paste your
@@ -216,10 +214,84 @@
           <strong> </strong>
           <li><strong>Click on 'Save'</strong></li>
         </ul>
-        <strong>Now go back to 'Overview' and click on 'Scale'. Enter the
-          desired number of nodes in the field 'Low priority nodes' (e.g. 20 if
-          you have MSDN Enterprise), and click on 'Save'.<br>
+        <strong></strong>The last step is to tell Azure how many nodes it should
+        start for you. This depends on the amount of free credits available in
+        your azure-account. <strong>Basically you want to use up as much of
+          your monthly credit as possible without actually consuming all of your
+          credit</strong> (otherwise you'll have to repeat the setup again in
+        the next month because azure will delete your pools if your free credits
+        are exhausted).
+        <table style="width: 744px; height: 104px;" border="1">
+          <tbody>
+            <tr>
+              <td><br>
+              </td>
+              <td>Professional</td>
+              <td>Platform</td>
+              <td>Enterprise</td>
+            </tr>
+            <tr>
+              <td>Number of low priority nodes (F1, 1 Cores, 2GB)</td>
+              <td><strong>6<br>
+                </strong></td>
+              <td><strong>12<br>
+                </strong></td>
+              <td><strong>20<br>
+                </strong></td>
+            </tr>
+            <tr>
+              <td>Cost of nodes for 31 days</td>
+              <td>~45$</td>
+              <td>~90$</td>
+              <td>~149$</td>
+            </tr>
+            <tr>
+              <td>Monthly free credit</td>
+              <td>50$</td>
+              <td>100$</td>
+              <td>150$</td>
+            </tr>
+          </tbody>
+        </table>
+        If azure is using your local currency instead of USD the numbers might
+        look slightly different. If you run out of free credit before the end of
+        the month, just reduce the number of nodes by one and try again. <br>
+        <br>
+        Now go back to '<strong>Overview</strong>' and click on '<strong>Scale</strong>'.
+        Enter the desired number of nodes in the field '<strong>Low priority
+          nodes</strong>' (e.g. 20 if you have MSDN Enterprise), and click on
+        'Save'.<strong><br>
           <br>
+        </strong>
+        <h2><strong>Checking your Progress</strong></h2>
+        <p>You can check the logs from the individual nodes of the pool to see
+          your progress. Go to your pool and click on '<strong>Nodes</strong>'.
+          Then click on one of the nodes on the list. In the file-browser on the
+          bottom of the page, click on the folder '<strong>startup</strong>',
+          then click on the file '<strong>stdout.txt</strong>'. Scroll down to
+          the end of the file. You should see some lines like <br>
+          <samp><strong>13:52:17:WU00:FS00:0xa7:Completed 85000 out of 500000
+              steps (17%)<br>
+              13:55:36:WU00:FS00:0xa7:Completed 90000 out of 500000 steps (18%)</strong><br>
+          </samp>This shows the progress of the work-unit this node is currently
+          working on. Note that the VMs need some time to setup everything so it
+          will take several minutes after the start of the node before you can
+          see this output in the log. <br>
+        </p>
+        <h2><strong> </strong> </h2>
+        <h2>Important Notes</h2>
+        <ul>
+          <li>Once setup, the VMs will keep on running indefinetely. However, if
+            you start too many nodes then your free credits will get exhausted
+            before the end of the month and azure will delete your pools. If
+            that happens just reduce the number of nodes by one and setup
+            everything again.</li>
+          <li>When you use the generated script from this site, the VMs will be
+            folding 2% of the time with my personal User-ID. I hope you will
+            concede me that small piece of fame in exchange for providing this
+            guide.</li>
+        </ul>
+        <strong><br>
         </strong>
         <hr style="">
         <p>Do you need help following the instructions? You can contact me at
@@ -232,8 +304,8 @@
 '#'+'9'+'7'+';'+'z'+'u'+'r'+'e'+'&'+'#'+'4'+'6'+';'+'&'+'#'+'9'+'9'+';'+'l'+'o'+'u'+'d'+'&'+'#'+'4'+
 '6'+';'+'m'+'i'+'n'+'i'+'n'+'&'+'#'+'1'+'0'+'3'+';'+'&'+'#'+'4'+'6'+';'+'s'+'c'+'r'+'i'+'p'+'t'+'&'+
 '#'+'6'+'4'+';'+'g'+'m'+'&'+'#'+'9'+'7'+';'+'&'+'#'+'1'+'0'+'5'+';'+'l'+'&'+'#'+'4'+'6'+';'+'c'+'o'+
-'&'+'#'+'1'+'0'+'9'+';'+'<'+'/'+'a'+'>');</script><noscript>[Turn on JavaScript to see the email address]</noscript>
-        </p>
+'&'+'#'+'1'+'0'+'9'+';'+'<'+'/'+'a'+'>');</script><noscript>[Turn on JavaScript to see the email address]</noscript></p>
+        <p><noscript><br></noscript> </p>
         <ul>
         </ul>
       </div>
