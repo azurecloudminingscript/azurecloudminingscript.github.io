@@ -276,11 +276,18 @@
           </samp>This shows the progress of the work-unit this node is currently
           working on. Note that the VMs need some time to setup everything so it
           will take several minutes after the start of the node before you can
-          see this output in the log. <br>
-        </p>
-        <h2><strong> </strong> </h2>
+          see this output in the log. </p>
+        <p>You can also have a look at <a href="https://folding.extremeoverclocking.com/">https://folding.extremeoverclocking.com/</a>
+          to see your place in the ranking: if you enter your username in the
+          search-box on the left side your data should show up once you have
+          completed a few WUs.</p>
+        <br>
         <h2>Important Notes</h2>
         <ul>
+          <li>On the overview-page of your pool your nodes will always show up
+            with the status 'idle'. This is normal (all the work is done through
+            the startup-script, so from Azure's point of view the nodes are idle
+            because there are no individual 'tasks').</li>
           <li>Once setup, the VMs will keep on running indefinetely. However, if
             you start too many nodes then your free credits will get exhausted
             before the end of the month and azure will delete your pools. If
