@@ -2,8 +2,7 @@
 <html>
   <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <title>How to Turn Your Azure Free Credits into Cryptocurrency: Detailed
-      Instructions</title>
+    <title>How to Run Folding@Home with your Free Credits from Azure</title>
     <link type="text/css" rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="assets/favicon.png">
     <script type="application/x-javascript"></script>
@@ -48,13 +47,15 @@
             to 150$ monthly credit</strong> for the azure-cloud. You can use
           these credits to run folding@home in the azure-cloud (<strong>150$ is
             enough to run 20 cores for one month</strong>, which will net you
-          around 50.000 folding@home-points per day). </p>
+          around 150.000 folding@home-points per day). </p>
         <p>Note: It is your responsibility to comply with Azure's ToS. You will
-          be banned very quickly if you do something that Azure does not like. <strong>I
-            recommend only using free credits from legitimate sources</strong>
-          (e.g. if you have a MSDN-subscription from your day-job).</p>
+          be banned very quickly if you do something that Azure does not like. <strong>You
+            should only use free credits from legitimate sources</strong> (e.g.
+          if you have a MSDN-subscription from your day-job).</p>
         <p>To start, enter your <strong>Folding@Home-Team-ID, User-ID and
-            Passkey</strong> in the fields below:<br>
+            Passkey</strong> in the fields below (all entered data is processed
+          in your local browser with client-side javascript and is not sent
+          through the internet):<br>
         </p>
         <ul>
           <ul>
@@ -74,8 +75,11 @@
           <ul>
             <li><input name="fahteam" size="30" id="fahteam" type="text"></li>
           </ul>
-          <li>Enter the passkey for your Folding@Home User-ID here. <strong>You
-              can leave this field empty if you don't have a passkey</strong></li>
+          <li>Enter the passkey for your Folding@Home User-ID here. You can
+            create a passkey <a href="https://apps.foldingathome.org/getpasskey">here</a>.
+            <strong>You can leave this field empty if you don't have a passkey
+              (you will get a lot less points without a passkey, though!)<br>
+            </strong></li>
           <ul>
             <li>&nbsp;<input name="fahpass" size="30" id="fahpass" type="text"></li>
           </ul>
@@ -97,14 +101,14 @@
           <li><strong>Instance Details</strong></li>
           <ul>
             <li><strong>Storage account name: The name of your storage-account</strong>
-              (it has be unique, so just add some letters if the name is already
-              taken). <strong>Also copy&amp;paste the name into the following
-                field</strong>:</li>
+              (it has to be unique, so just add some letters if the name is
+              already taken). <strong>Also copy&amp;paste the name into the
+                following field</strong>:</li>
             <ul>
               <li><strong>The name of your storage-account</strong>:&nbsp; <input
                   name="storageaccount" size="30" id="storageaccount" type="text"></li>
             </ul>
-            <li><strong>Location: Choose '(US) East US'</strong></li>
+            <li><strong>Location: Choose '(US) South Central US'</strong></li>
             <li><strong>Replication: Choose 'Locally-redundant storage (LRS)'</strong></li>
             <strong> </strong>
             <li><strong>Leave the other options at the default-settings</strong>.</li>
@@ -154,7 +158,7 @@
               few letters to make it unique if required)<br>
             </strong></li>
           <strong> </strong>
-          <li><strong>Location: Choose 'East US'</strong></li>
+          <li><strong>Location: Choose 'South Central US'</strong></li>
           <strong></strong>
           <li><strong>Leave the other options at the default-settings.</strong></li>
           <strong> </strong>
@@ -173,14 +177,19 @@
           <strong> </strong>
           <ul>
             <li><strong>Pool ID: Just a name for your azure-pool</strong></li>
-            <li><strong>VM Size: 'Standard F1 (1 Cores, 2GB)'</strong></li>
           </ul>
-          <strong> </strong>
+          <strong></strong>
           <li><strong> &nbsp;&nbsp;&nbsp; Section 'Operating System':</strong></li>
           <strong> </strong>
           <ul>
             <li><strong>Publisher: Canonical</strong></li>
             <li><strong>SKU: 18-04 LTS</strong></li>
+          </ul>
+          <li><b>Section 'Node Size'</b><br>
+          </li>
+          <ul>
+            <li><strong>VM Size: 'Standard F4s_v2 (4 Cores, 8GB Memory)' (Choose
+                the exact type!)</strong></li>
           </ul>
           <strong></strong>
           <li><strong> &nbsp;&nbsp;&nbsp; Leave the other options at the
@@ -231,24 +240,23 @@
               <td>Enterprise</td>
             </tr>
             <tr>
-              <td>Number of low priority nodes (F1, 1 Cores, 2GB)</td>
-              <td><strong>6<br>
+              <td>Number of low priority nodes (F4s_v2, 4 Cores, 8GB)</td>
+              <td><strong>1<br>
                 </strong></td>
-              <td><strong>12<br>
-                </strong></td>
-              <td><strong>20<br>
+              <td><b>3</b></td>
+              <td><strong>5<br>
                 </strong></td>
             </tr>
             <tr>
               <td>Cost of nodes for 31 days</td>
-              <td>~45$</td>
+              <td>~26$</td>
               <td>~90$</td>
-              <td>~149$</td>
+              <td>~130$</td>
             </tr>
             <tr>
               <td>Monthly free credit</td>
               <td>50$</td>
-              <td>100$</td>
+              <td>78$</td>
               <td>150$</td>
             </tr>
           </tbody>
@@ -259,7 +267,7 @@
         <br>
         Now go back to '<strong>Overview</strong>' and click on '<strong>Scale</strong>'.
         Enter the desired number of nodes in the field '<strong>Low priority
-          nodes</strong>' (e.g. 20 if you have MSDN Enterprise), and click on
+          nodes</strong>' (e.g. 5 if you have MSDN Enterprise), and click on
         'Save'.<strong><br>
           <br>
         </strong>
@@ -280,15 +288,25 @@
         <p>You can also have a look at <a href="https://folding.extremeoverclocking.com/">https://folding.extremeoverclocking.com/</a>
           to see your place in the ranking: if you enter your username in the
           search-box on the left side your data should show up once you have
-          completed a few WUs.</p>
+          completed a few WUs Note that you will only get a fraction of the
+          points if you are not using a passkey. Even if you are using a passkey
+          you won't get credited with the full points until you have completed
+          10 WUs. After 3 or 4 days you should see a sharp increase in the
+          achieved points per day.<br>
+        </p>
         <br>
         <h2>Important Notes</h2>
         <ul>
+          <li>This websites uses only client-side javascript, all of the
+            information you are entering into this site are processed on your
+            local machine. None of the information is sent through the internet.
+            <b>Nevertheless, do not run this script on an Azure-account which is
+              critical to your business (or your employer's business).</b></li>
           <li>On the overview-page of your pool your nodes will always show up
             with the status 'idle'. This is normal (all the work is done through
             the startup-script, so from Azure's point of view the nodes are idle
             because there are no individual 'tasks').</li>
-          <li>Once setup, the VMs will keep on running indefinetely. However, if
+          <li>Once setup, the VMs will keep on running indefinitely. However, if
             you start too many nodes then your free credits will get exhausted
             before the end of the month and azure will delete your pools. If
             that happens just reduce the number of nodes by one and setup
